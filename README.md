@@ -37,9 +37,20 @@ This skeleton does not include the core files, they are not necessary for the cr
 
 Skeleton version for IDMarinas Edition: **_4.4.*_**
 
+## First steps
+-   Run command `npm install` for install all nodes packages.
+    -   Note: When Fomantic Ui asks you to install, select "Skip install" and then accept everything.
+    -   Not is necesary install in proyect folder.
+-   Run command `composer install` for install al composer packages.
+-   Download lasted zip release and copy files to `_core_files/` folder
+-   Make your custom modules
+-   Run command `npm run lotgd-prod` for build a version for production server, located in `dist/prod/`
+-   Run command `npm run lotgd-dev` for build a version for development server, located in `dist/dev/`
+
 ## Tips
 -   **Composer and Package**
     -   You can add new dependencies as your project needs them, but do NOT remove any of the default ones.
+    -   Note: Please do not change the versions of the dependencies.
 
 # Other
 
