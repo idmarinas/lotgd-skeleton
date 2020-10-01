@@ -1,13 +1,20 @@
 //-- Modify with your data
 
-var path = require('path')
+const path = require('path')
+const merge = require('lodash.merge')
 
-module.exports = {
+const distFolder = '../../dist'
+
+const config = {
     paths: {
         semantic: 'semantic/dist', //-- Directory of compiled files of Semantic UI
         //-- Directory for construct game
-        build: path.resolve(__dirname, '../../dist'),
-        skeleton: path.resolve(__dirname, '../../skeleton')
+        build: {
+            dist: path.resolve(__dirname, distFolder),
+            prod: path.resolve(__dirname, `${distFolder}/prod`),
+            dev: path.resolve(__dirname, `${distFolder}/dev`),
+            skeleton: path.resolve(__dirname, `${distFolder}/skeleton`)
+        }
     },
     files: {
         //-- Files to copy
@@ -22,22 +29,21 @@ module.exports = {
             '!{*.,}dist{,/**}', //-- Ignore all dist folders
             '!docs{,/**}', //-- Ignore the "docs/" folder, you don't need to publish it on your server.
             '!release{,/**}', //-- These are the compiled files of the different versions ready to use in production.
-            '!semantic{,/**}',
             '!entity{,/**}', //-- Autogenerate entities from BD
-            '!node_modules{,/**}',
-            '!bower_components{,/**}',
-            //-- Ignore because using composer to update all packages
-            '!vendor{,/**}'
+            '!_core_files{,/**}', //-- This files are merge if need, in Custom local Skeleton
+            //-- Ignore dependency directories
+            '!{bower_components,node_modules,vendor}{,/**}'
         ],
+        core_files: [],
         skeleton: [
             //-- All files includin subdirectories
             '**{,/**}',
             //-- Include .files
-            '{/**/.gitkeep,/.codeclimate.yml,/.editorconfig,/.eslintignore,/.eslintrc.js,/.gitignore,/.php_cs,/.stickler.yml,/.watchmanconfig,/.whitesource}',
+            '{/**/.gitkeep,/.codeclimate.yml,/.editorconfig,/.eslintignore,/.eslintrc.js,/.gitignore,/.php_cs,/.stickler.yml,/.watchmanconfig}',
             //-- Ignore files of development
             '!{docs,release}{,/**}',
             //-- Ignore folders not need for skeleton
-            '!{error_docs,lib,modules}{,/**}',
+            '!{error_docs,lib,skeleton}{,/**}',
             //-- Ignore files of core
             '!config/autoload/global{,/**}',
             '!cronjob/*.php',
@@ -59,3 +65,15 @@ module.exports = {
         ]
     }
 }
+
+var custom = {}
+try
+{
+    custom = require('../custom/config/default')
+}
+catch (error)
+{
+    console.log('Not find custom config default')
+}
+
+module.exports = merge(config, custom)
