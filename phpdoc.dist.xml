@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor>
+    <title>Legend of the Green Dragon</title>
+    <parser>
+        <target>output-cache.dist</target>
+        <encoding>utf8</encoding>
+        <markers>
+            <item>TODO</item>
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+        <visibility></visibility>
+    </parser>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <transformations>
+        <template name="responsive" />
+    </transformations>
+    <files>
+        <directory>.</directory>
+        <ignore>.git/*</ignore>
+        <ignore>.github/*</ignore>
+        <ignore>.phan/*</ignore>
+        <ignore>.vscore/*</ignore>
+        <ignore>assets/*</ignore>
+        <ignore>dist/*</ignore>
+        <ignore>docs/*</ignore>
+        <ignore>error_docs/*</ignore>
+        <ignore>gulp/*</ignore>
+        <ignore>output-cache.dist/*</ignore>
+        <ignore>node_modules/*</ignore>
+        <ignore>release/*</ignore>
+        <ignore>semantic/*</ignore>
+        <ignore>storage/*</ignore>
+        <ignore>templates/*</ignore>
+        <ignore>translations/*</ignore>
+        <ignore>vendor/*</ignore>
+    </files>
+</phpdocumentor>
