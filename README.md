@@ -13,9 +13,6 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/idmarinas/lotgd-local-skeleton.svg)
 ![GitHub language count](https://img.shields.io/github/languages/count/idmarinas/lotgd-local-skeleton.svg)
-[![DepShield Badge](https://depshield.sonatype.org/badges/idmarinas/lotgd-local-skeleton/depshield.svg)](https://depshield.github.io)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/idmarinas/lotgd-local-skeleton.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/idmarinas/lotgd-local-skeleton/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/idmarinas/lotgd-local-skeleton.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/idmarinas/lotgd-local-skeleton/context:javascript)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/4553239eac9e717f1cce/maintainability)](https://codeclimate.com/github/idmarinas/lotgd-local-skeleton/maintainability)
 ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/idmarinas/lotgd-local-skeleton?cacheSeconds=86400)
