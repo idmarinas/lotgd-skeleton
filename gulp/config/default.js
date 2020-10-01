@@ -34,7 +34,7 @@ const config = {
             //-- Ignore dependency directories
             '!{bower_components,node_modules,vendor}{,/**}'
         ],
-        core_files: [],
+        core_files: [], //-- This is used in LoTGD Skeleton
         skeleton: [
             //-- All files includin subdirectories
             '**{,/**}',
