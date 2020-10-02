@@ -4,7 +4,6 @@
 [![Website](https://img.shields.io/website-up-down-green-red/https/lotgd.infommo.es.svg?label=lotgd-demo)](https://lotgd.infommo.es)
 [![Build in PHP](https://img.shields.io/badge/PHP-^7.2-8892BF.svg?logo=php)](http://php.net/)
 
-![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/idmarinas/lotgd-local-skeleton/master.svg?color=red)
 ![GitHub issues](https://img.shields.io/github/issues/idmarinas/lotgd-local-skeleton.svg)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/idmarinas/lotgd-local-skeleton.svg)
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/lotgd-local-skeleton/latest.svg)
