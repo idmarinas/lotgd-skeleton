@@ -54,19 +54,19 @@ const config = {
             '!src/core{,/**}',
             '!src/ajax/core{,/**}',
             '!src/ajax/pattern/core{,/**}',
-            '!templates/{base,core,jaxon,semantic}{,/**}',
+            '!templates_core{,/**}',
             //-- Ignore dependency directories
             '!{bower_components,node_modules,vendor}{,/**}',
             //-- Ignore all dist folders
             '!{*.,}dist{,/**}',
             //-- Ignore some files
-            '!*.{txt,TXT,csv}',
-            '!README.md'
+            '!*.{txt,TXT,csv,phar}',
+            '!{README.md,TODO.md,phpdoc.dist.xml}'
         ]
     }
 }
 
-var custom = {}
+let custom = {}
 try
 {
     custom = require('../custom/config/default')

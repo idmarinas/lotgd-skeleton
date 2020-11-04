@@ -7,7 +7,7 @@
  * If you have many Encore config can explit in diferents files them import and export and array with all configs
  *
  */
-var Encore = require('@symfony/webpack-encore')
+const Encore = require('@symfony/webpack-encore')
 
 // This is necesary
 if (!Encore.isRuntimeEnvironmentConfigured())
@@ -54,7 +54,7 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
 
-    .configureBabelPresetEnv((config) =>
+    .configureBabelPresetEnv(config =>
     {
         config.useBuiltIns = 'usage'
         config.corejs = 3
