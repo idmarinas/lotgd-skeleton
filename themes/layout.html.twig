@@ -15,7 +15,11 @@
 		{{ metahead }}
 
         <!-- Title tag for page -->
-        <title>{{ head_title().renderTitle() }}</title>
+        <title>
+            {% block lotgd_head_title %}
+                {{ head_title().renderTitle() }}
+            {% endblock lotgd_head_title %}
+        </title>
 
         {{ encore_entry_link_tags('lotgd', 'lotgd', 'lotgd') }}
         {{ encore_entry_link_tags('semantic_ui', 'lotgd', 'lotgd') }}
@@ -28,7 +32,12 @@
 		{{ csshead }}
 
         {{ encore_entry_script_tags('lotgd', 'lotgd', 'lotgd') }}
-        {% block lotgd_head_theme_js %}{% endblock %}
+        {% block lotgd_head_theme_js %}
+            <!-- Load Ad Script -->
+            {% if google_ads_is_active and enviroment == 'prod' %}
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            {% endif %}
+        {% endblock lotgd_head_theme_js %}
 
         <!-- JavaScript of Fomantic UI -->
         {{ encore_entry_script_tags('semantic_ui', 'lotgd', 'lotgd') }}
@@ -54,6 +63,7 @@
     </head>
     <body>
         {% block lotgd_body %}
+            {{ google_ad('ad_header') }}
             <table class="lotgd table">
                 {% include '@layout/layout/header.twig' %}
                 {% include '@layout/layout/content.twig' %}

@@ -31,7 +31,7 @@ This skeleton does not include the core files, they are not necessary for the cr
 
 ## IDMarinas Edition
 
-Skeleton version for IDMarinas Edition: **_4.5.*_**
+Skeleton version for IDMarinas Edition: **_4.6.*_**
 
 ## First steps
 -   Run command `npm install` for install all nodes packages.

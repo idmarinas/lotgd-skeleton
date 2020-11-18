@@ -45,6 +45,7 @@ const config = {
             //-- Ignore folders not need for skeleton
             '!{error_docs,lib,skeleton}{,/**}',
             //-- Ignore files of core
+            '!assets/lotgd/css/semantic{,/**}',
             '!config/autoload/global{,/**}',
             '!cronjob/*.php',
             '!data/form/core{,/**}',
@@ -55,6 +56,8 @@ const config = {
             '!src/ajax/core{,/**}',
             '!src/ajax/pattern/core{,/**}',
             '!templates_core{,/**}',
+            '!templates/lotgd{,/**}',
+            '!translations/en{,/**}',
             //-- Ignore dependency directories
             '!{bower_components,node_modules,vendor}{,/**}',
             //-- Ignore all dist folders

@@ -2,10 +2,94 @@
 
 See CHANGELOG.txt for see changes made for Oliver Brendel +nb Edition
 
-Visit the [Documentation](https://github.com/idmarinas/lotgd-game/wiki) for more details.  
-Visit the [README](https://github.com/idmarinas/lotgd-game/blob/master/README.md).  
+Visit the [Wiki](https://github.com/idmarinas/lotgd-game/wiki) for more details. 
+Visit the [Documentation](https://idmarinas.github.io/lotgd-game/) for more details.  
+Visit the [README](https://github.com/idmarinas/lotgd-game/blob/master/README.md).   
 Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V2.md)  
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
+
+
+# Version: 4.6.0
+
+### :cyclone: CHANGES
+
+-   **Templates**
+    -   `templates/lotgd/pages` pages of LoTGD use blocks/macros template to reduce number of templates and complexity.
+    -   `templates/lotgd/form` remove reference to Zend and use Laminas.
+-   **Twig System**
+    -   Rename extension file `src/core/Twig/Extension/Head.php` to `src/core/Twig/Extension/Helpers.php`
+    -   New Twig functions
+        -   `base_path(string|null)` Returns site's base path, or file with base path prepended
+
+### :star: FEATURES
+
+-   **New LoTGD Console**
+    -   New feature, LoTGD console, work similar to Symfony Framework console, (use Symfony console component)
+    -   Commands that have:
+        -   `about` see a information of Lotgd application
+        -   `storage:cache_stats` Show stats of storage cache folder.
+        -   `storage:cache_clear` Clear storage cache and keep the default cache structure.
+            -   Note: for custom cache folders, add file `.gitkeep` and this command not remove your folders for cache.
+    -   How use:
+        -   In terminal/console use `php bin/console` and this see information and list of commands.
+    -   You can add your custom commands, only need add class name to `config/autoload/local/console-lotgd-core.php`
+        -   Can see example in `config/autoload/global/console-lotgd-core.php`
+-   **Twig template system**
+    -   Global params, now can add global params to Twig templated, this params are available for all templates.
+        ```php
+        //-- config/autoload/local/twig-lotgd-local.php
+        return [
+            'twig_global_params' => [
+                'your' => 'param value'
+            ],
+        ]
+        ```
+        -   Default globals:
+            -   `enviroment` register when Template system is created (in factory). Values: `dev` or `prod`
+            -   `userPre` register when call `\LotgdResponse::pageStart();`
+            -   `sessionPre` register when call `\LotgdResponse::pageStart();`
+            -   `user` register when instantiate Template system (`__construct()`) and call `\LotgdTheme::render()`, `LotgdTheme::renderBlock()`, `\LotgdTheme::load()` and `\LotgdResponse::pageEnd();`
+            -   `session` register when instantiate Template system (`__construct()`) and call `\LotgdTheme::render()`, `LotgdTheme::renderBlock()`, `\LotgdTheme::load()` and `\LotgdResponse::pageEnd();`
+-   **Simple Advertising Google AdSense**
+    -   Now can show Ads of Google AdSense in LoTGD. Using Twig function
+    -   `google_ad('ad_header')`
+    -   Can see configuration in `config/autoload/global/advertising-lotgd-core.php` 
+
+### :fire: DEPRECATED
+
+-   **scr/core/Template/Template.php** 
+    -   `renderTheme()` is obsolete.
+        -   Use `render()` with {theme} pattern to render a theme template.
+            -   Example: `\LotgdTheme::render("{theme}/path/to/template.html.twig");`
+                -   This search template `@themeJade/path/to/template.html.twig`
+                    -   Where `@themeJade` is the actual theme actived.
+    -   `renderLayout()` is obsolete
+        -   Use `render()` with `@layout` namespace
+            -   Example: `\LotgdTheme::render("@layout/path/to/template.html.twig");`
+-   **Twig functions**
+    -   `include_module` use new Template System with `@module` namespace
+    -   `include_theme` use new Template System for themes.
+    -   `include_layout` use pattern `{theme}`. Example: `{theme}/path/to/template.html.twig`
+
+### :wrench: FIXES
+
+-   **templates/lotgd/_blocks/_mail.html.twig** Fixed error with To field select (Here add to inline script not is valid, this show in Jaxon script)
+-   **templates/lotgd/pages/list.html.twig** Fixed error, templates not get `userPost` value, only user, that is the actual value.
+-   **templates/lotgd/_blocks/_commentary.html.twig** Fixed error, where it showed the mark that all comments were recent
+
+### :x: REMOVES
+
+-   **lib/spell.php** This file is not in use, and not is used. Use new Censor system. 
+    -   `$censor = \LotgdLocator::get(\Lotgd\Core\Output\Censor::class); $censor->filter(string)`
+
+### :notebook: NOTES
+
+-   **Added lazy services**.
+    -   These services are not always necessary, so they are only created the first time they are needed.
+        -   `Laminas\View\Helper\BasePath`
+-   **Doctrine Extension** Migrating `gedmo/doctrine-extensions` from 2.4.* to version 3.0.*
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
 
 # Version: 4.5.0
 

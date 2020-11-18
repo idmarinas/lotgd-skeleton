@@ -1,15 +1,16 @@
 # History of changes for IDMarinas Edition
 
-This is a list of changes made in versions __2.*.*__
+This is a list of changes made in versions __3.*.*__
 
 
 ## Changes made for IDMarinas Edition
 
 See CHANGELOG.txt for see changes made for Oliver Brendel +nb Edition
 
-Visit the [Documentation](https://github.com/idmarinas/lotgd-game/wiki) for more details.  
+Visit the [Wiki](https://github.com/idmarinas/lotgd-game/wiki) for more details. 
+Visit the [Documentation](https://idmarinas.github.io/lotgd-game/) for more details.  
 Visit the [README](https://github.com/idmarinas/lotgd-game/blob/master/README.md).  
-Visit **_actual_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG.md)  
+Visit **_latest_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG.md)  
 Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V2.md)  
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 
