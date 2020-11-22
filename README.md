@@ -2,7 +2,7 @@
 ![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/lotgd-local-skeleton.svg)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/lotgd-local-skeleton)
 [![Website](https://img.shields.io/website-up-down-green-red/https/lotgd.infommo.es.svg?label=lotgd-demo)](https://lotgd.infommo.es)
-[![Build in PHP](https://img.shields.io/badge/PHP-^7.2-8892BF.svg?logo=php)](http://php.net/)
+[![Build in PHP](https://img.shields.io/badge/PHP-^7.3-8892BF.svg?logo=php)](http://php.net/)
 
 ![GitHub issues](https://img.shields.io/github/issues/idmarinas/lotgd-local-skeleton.svg)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/idmarinas/lotgd-local-skeleton.svg)
