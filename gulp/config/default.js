@@ -46,10 +46,10 @@ const config = {
             '!assets/lotgd/css/semantic{,/**}',
             '!config/autoload/global{,/**}',
             '!config/autoload/local{,/**}',
+            '!config/lotgd.config.php',
             '!cronjob/*.php',
             '!data/form/core{,/**}',
             '!public{,/**}',
-            'public/**/.gitkeep', //-- Only copy .gitkeep
             '!modules{,/**}',
             '!src/module{,/**}',
             '!src/core{,/**}',
@@ -58,16 +58,16 @@ const config = {
             '!templates_core{,/**}',
             '!templates/lotgd{,/**}', //-- No need in skeleton Can see examples in copy that you need have in "_core_files/templates/lotgd" folder
             '!themes{,/**}', //-- No need in skeleton Can see examples in copy that you need have in "_core_files/themes" folder
-            '!translations/en{,/**}', //-- No need in skeleton Can see examples in copy that you need have in "_core_files/translations" folder
-            //-- Ignore dependency directories
-            '!{bower_components,node_modules,vendor}{,/**}',
-            //-- Ignore all dist folders
-            '!{*.,}dist{,/**}',
+            '!translations/en{,/**}', //-- No need in skeleton Can see examples in copy that you need have in "_core_files/translations/en" folder
             //-- Ignore some files
             '!*.{txt,TXT,csv,phar}',
             '!{README.md,TODO.md,phpdoc.dist.xml}',
             //-- Include .files
-            '{/**/.gitkeep,/.codeclimate.yml,/.editorconfig,/.eslintignore,/.eslintrc.js,/.gitignore,/.php_cs,/.stickler.yml,/.watchmanconfig}'
+            '{/**/.gitkeep,/.codeclimate.yml,/.editorconfig,/.eslintignore,/.eslintrc.js,/.gitignore,/.php_cs,/.stickler.yml,/.watchmanconfig}',
+            //-- Ignore all dist folders
+            '!{*.,}dist{,/**}',
+            //-- Ignore dependency directories
+            '!{bower_components,node_modules,vendor}{,/**}'
         ]
     }
 }
