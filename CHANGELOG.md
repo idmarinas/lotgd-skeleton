@@ -73,9 +73,11 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 
 ### :wrench: FIXES
 
+-   **public/shades.php** Fixed error with link to Faq.
 -   **templates/lotgd/_blocks/_mail.html.twig** Fixed error with To field select (Here add to inline script not is valid, this show in Jaxon script)
 -   **templates/lotgd/pages/list.html.twig** Fixed error, templates not get `userPost` value, only user, that is the actual value.
 -   **templates/lotgd/_blocks/_commentary.html.twig** Fixed error, where it showed the mark that all comments were recent
+-   **Doctrine** Fixed occasional error with the datetime 0000-00-00 00:00:00, being an invalid date, when saving it in the database used -0001-11-30 00:00:00
 
 ### :x: REMOVES
 
@@ -84,6 +86,7 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 
 ### :notebook: NOTES
 
+-   Replace **Jobby** for **Cron/Cron** (as it seems that Jobby does not work in PHP 7.3)
 -   :warning: **PHP** LoTGD Core now need min PHP version 7.3
 -   **Added lazy services**.
     -   These services are not always necessary, so they are only created the first time they are needed.
