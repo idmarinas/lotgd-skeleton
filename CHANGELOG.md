@@ -9,6 +9,52 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 
 
+# Version: 4.7.0
+
+### :cyclone: CHANGES
+
+-   **Console commands**
+    -   **storage:cache_clear** now not remove cache of Doctrine proxy in production environment.
+
+### :star: FEATURES
+
+-   Nothing
+
+### :fire: DEPRECATED
+
+-   **src/core/Output/Collector.php** this Class are deprecated (and all functions)
+-   **lib/output.php**
+    -   `appoencode` use `LotgdFormat::colorize($string)` instead
+
+### :wrench: FIXES
+
+-   Nothing
+
+### :x: REMOVES
+
+-   **lib/class/static.phnp** 
+    -   Remove static class `LotgdForm` use factory to get this `$formFactory = \LotgdLocator::get('Lotgd\Core\SymfonyForm');`
+    -   Remove static class `LotgdHttp` use `LotgdRequest` instead.
+-   **src/core/Template/Template.php** Remove function `renderTheme()`
+-   **src/core/Fixed/SymfonyForm.php** Removed file
+-   **src/core/Fixed/Http.php** Removed file
+-   **lib/output.php**
+    -   Function `output`
+    -   Function `output_notl`
+-   **public/ajaxcommentary.php** Removed file, not in use
+-   **public/ajaxdatacache.php** Removed file, now use Jaxon to proccess cache deletion.
+
+### :notebook: NOTES
+
+-   **Added lazy services**.
+    -   These services are not always necessary (some are deprecated), so they are only created the first time they are needed.
+        -   `Lotgd\Core\Http`
+        -   `Lotgd\Core\Output\Collector`
+-   Removed/Replace usage of some obsolete functions in files.
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
+
 # Version: 4.6.0
 
 ### :cyclone: CHANGES
