@@ -9,6 +9,105 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 
 
+# Version: 4.8.0
+
+### :cyclone: CHANGES
+
+-   **Forms** Replace all Laminas Form for Symfony Form
+    -   Example: Configuration, cronjob... (all forms in data/form/core)
+-   **Translator system**
+    -   Migrated from **Laminas i18n** to **Symfony Translation**
+    -   All Core translator files are renamed to `domain+intl-icu.locale.loader`
+    -   New format for translation files (name only)
+        -   `domain.locale.loader` Normal translation file name
+        -   `domain+intl-icu.locale.loader` Translation file name with icu support
+        -   Notes:
+            -   **_domain_**: Domains are a way to organize messages into groups.
+            -   **_locale_**: The locale that the translations are for.
+            -   **_loader_**: How Symfony should load and parse the file.
+    -   Is a Symfony Translator that support all options of Symfony Framework.
+    -   Can organize your translation files in folders:
+        -   When Symfony Translation load all translations resource, merge all content in same domain for each locale like this:
+            ```php
+            new MessageCatalogue('en', [
+                'domain' => [
+                    'key' => 'translation text'
+                ]
+            ])
+            ```
+        -   So if have multile files with same domain, for example:
+            -   `translations/en/navigation/bank.en.yaml`
+            -   `translations/en/page/bank.en.yaml`
+            -   Symfony Translation merge all in same domain and if any key are repeat last key added replace first key.
+-   **Doctrine ORM**
+    -   Doctrine are now configure with **LoTGD Kernel**, see notes in **FEATURES -> LoTGD Kernel**
+
+### :star: FEATURES
+
+-   **LoTGD Kernel** Added a LoTGD Kernel (Based in Symfony Framework) to Core Game.
+    -   This is the first iteration for migrate to Symfony Framwork app.
+        -   For now is used for:
+            -   **Doctrine**, if you need use Doctrine ORM use `LotgdKernel::get('doctrine.orm.entity_manager')` or `LotgdKernel::getContainer()->get('doctrine.orm.entity_manager')`
+                -   Note: static class `Doctrine::` use new service of kernel, if you use this static class, not need change nothing.
+                -   Note 2: All core game use new kernel services for use Doctrine (or 99.99%)
+            -   **Translation system** Translation are moved to Symfony Translation, if you want use this new system use `LotgdKernel.get('translation')`  
+                -   Note: static class `LotgdTranslator::` use old Laminas translation.
+    -   _Laminas Service Manager_ are deprecated, and all factories will be moved to LoTGD Kernel in future versions.
+-   **Doctrine Entity Manager**
+    -   Added to EntityManager class this functions:
+        -   `hydrateEntity(array $data, object $entity)`
+        -   `extractEntity(object|array $object)`
+    -   Can use with static class `Doctrine::hydrateEntity($data, $entity)` and `Doctrine::extractEntity($entity)`
+
+### :fire: DEPRECATED
+
+-   **Laminas Form** is deprecated since 4.8.0
+-   **Laminas translation** is deprecated since 4.8.0
+    -  **src/core/Translator/Translator.php**
+    -   **src/core/Fixed/Translator.php**
+    -   Usage of `LotgdTranslator::` is obsolete since 4.8.0
+        -   Use `$translator = LotgdKernel::getContainer()->get("translator")`
+-   **Doctrine factory of Laminas** Usage of `LotgdLocator::get(\Lotgd\Core\Db\Doctrine::class)` is deprecated
+    -   Use `LotgdKernel::getContainer()->get('doctrine')` or `LotgdKernel::getContainer()->get('doctrine.orm.entity_manager')`
+    -   **Note**: `Doctrine::` static class use new `LotgdKernel::getContainer()->get('doctrine.orm.entity_manager')`
+    .   Have same configuration.
+
+### :wrench: FIXES
+
+-   Nothing
+
+### :x: REMOVES
+
+-   **lib/jaxon.php** Removed this file, use factory to get a instance `\LotgdLocator::get(Lotgd\Core\Jaxon::class);`
+-   **Functions**
+    -   **lib/pageparts.php** This functions not are use for Core Game and Core Modules
+        -   `page_header()` use `LotgdResponse::pageStart()`
+        -   `page_footer()` use `LotgdResponse::pageEnd()`
+        -   `popup_header` and `popup_footer()` Use Jaxon instead
+-   **public/common_jaxon.php** Removed some required files:
+    -   **lib/output.php** Not need this in Jaxon petitions
+    -   **lib/redirect.php** Not need this redirect, Jaxon have a redirect method.
+    -   **lib/translator.php** Not need old translation system in Jaxon use new translation system.
+-   **src/core/Pattern/Repository.php** Remove obsolete trait/pattern, use `Lotgd\Core\Pattern\Doctrine` instead
+-   **src/core/Pattern/Theme.php** Remove obsolete trait/pattern, use `Lotgd\Core\Pattern\Template` instead
+
+### :notebook: NOTES
+
+-   **IMPORTANT when upgrade to this version** 
+    -   Game try to create file `.env.local.php` if not find, you need create by yourself if game cant create file.
+    -   For this version to work properly you must upload the file `.env.local.php.dummy` in the same directory and rename it to `.env.local.php`
+        -   You must also configure all the keys in the file with the information from the Database so that you can configure the Doctrine from the Kernel correctly (Use the `config/autoload/local/dbconnect.php` file to complete the data in `.env.local.php`)
+        -   This is necessary for the kernel to load correctly.
+-   **Added lazy services**.
+    -   These services are not always necessary (some are deprecated), so they are only created the first time they are needed.
+        -   `DoctrineModule\Service\CliFactory`
+        -   `Lotgd\Core\EventManager\Event`
+        -   `Lotgd\Core\Doctrine\Extension\TablePrefix`
+        -   `Lotgd\Core\Db\Doctrine`
+        -   `Doctrine\ORM\EntityManager`
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
 # Version: 4.7.0
 
 ### :cyclone: CHANGES
@@ -53,7 +152,6 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 -   Removed/Replace usage of some obsolete functions in files.
 -   **composer.json** Updated/Added/Deleted dependencies
 -   **package.json** Updated/Added/Deleted dependencies
-
 
 # Version: 4.6.0
 

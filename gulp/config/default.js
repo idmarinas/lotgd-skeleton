@@ -20,7 +20,7 @@ const config = {
         //-- Files to copy
         main: [
             //-- All files includin subdirectories
-            '**{,/**,/.htaccess,/.gitkeep}',
+            '**{,/**}',
             //-- Ignore files of development
             '!gulp{,/**}',
             '!gulpfile.js',
@@ -31,8 +31,10 @@ const config = {
             '!release{,/**}', //-- These are the compiled files of the different versions ready to use in production.
             '!entity{,/**}', //-- Autogenerate entities from BD
             '!_core_files{,/**}', //-- This files are merge if need, in Custom local Skeleton
+            //-- Include .files
+            '{/**/.gitkeep,/.env,/.htaccess}',
             //-- Ignore dependency directories
-            '!{bower_components,node_modules,vendor}{,/**}'
+            '!{bower_components,node_modules,vendor,var}{,/**}'
         ],
         core_files: [], //-- This is used in LoTGD Skeleton
         skeleton: [
@@ -59,15 +61,16 @@ const config = {
             '!templates/lotgd{,/**}', //-- No need in skeleton Can see examples in copy that you need have in "_core_files/templates/lotgd" folder
             '!themes{,/**}', //-- No need in skeleton Can see examples in copy that you need have in "_core_files/themes" folder
             '!translations/en{,/**}', //-- No need in skeleton Can see examples in copy that you need have in "_core_files/translations/en" folder
+            '!src/{Controller,Entity,Repository}{,/**}', //-- Not need for now this folders
             //-- Ignore some files
             '!*.{txt,TXT,csv,phar}',
             '!{README.md,TODO.md,phpdoc.dist.xml}',
             //-- Include .files
-            '{/**/.gitkeep,/.codeclimate.yml,/.editorconfig,/.eslintignore,/.eslintrc.js,/.gitignore,/.php_cs,/.stickler.yml,/.watchmanconfig}',
+            '{/**/.gitkeep,/.env,/.codeclimate.yml,/.editorconfig,/.eslintignore,/.eslintrc.js,/.gitignore,/.php_cs,/.stickler.yml,/.watchmanconfig}',
             //-- Ignore all dist folders
             '!{*.,}dist{,/**}',
             //-- Ignore dependency directories
-            '!{bower_components,node_modules,vendor}{,/**}'
+            '!{bower_components,node_modules,vendor,var}{,/**}'
         ]
     }
 }
