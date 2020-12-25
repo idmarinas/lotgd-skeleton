@@ -9,6 +9,85 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 
 
+# Version: 4.9.0
+
+### :cyclone: CHANGES
+
+-   _Migrating_ **Laminas Cache** to **Symfony Cache**.
+    -   Some parts of LoTGD Core use Symfony Cache instead of Laminas Cache.
+        -   `lib/installer/installer_stage_default.php` 
+        -   `lib/modules/settings.php` 
+        -   `lib/newday/logoutaccts.php`
+        -   `lib/creaturefuntions.php` function `lotgd_generate_creature_levels()` 
+        -   `lib/experience.php` function `exp_for_next_level()` 
+        -   `lib/pageparts.php` function `charstats()` 
+        -   `public/moderate.php` 
+        -   `src/core/Form/Type/LotgdThemeType.php`
+        -   `src/core/Lib/Settings.php`
+        -   `src/core/Output/Commentary.php`
+    -   Can create your pools or use default app cache.
+        -   `LotgdKernel::get('cache.app')` for use default cache app
+    -   Example for create new cache pools:
+        ```yaml
+            framework:
+                cache:
+                    # Namespaced pools use the above "app" backend by default
+                    pools:
+                        core.settings.cache:
+                            adapter: cache.app # Use default configuration
+                            public: true # Thnis is necesary for get your cache from service container. Example: LotgdKernel::get('core.settings.app')
+        ```
+-   _Migrated_ **Laminas Http** to **Symfony HttpFoundation**
+    -   `LotgdRequest::` and `LotgdResponse::` static class now use **Symfony HttpFoundation**
+    -   May be cause *BC* if you use more options than LoTGD Core used.
+        -   May be not need update nothing.
+-   _Migrated_ **Laminas Session** to **Symfony Session**
+    -   `LotgdSession::` static class now use **Symfony Session**
+    -   Can get a object session with `Lotgdkernel::get('session')`
+-   _Migrated_ **Lotgd\Core\Component\FlashMessages** to **Symfony Session FlashBag**
+    -   `LotgdFlashMessages::` static class now use `LotgdKernel::get('session')->getFlashBag()`
+
+### :star: FEATURES
+
+-   **LotgdNavigation::** static class
+    -   Added `pagination` function, to create a pagination navs.
+
+### :fire: DEPRECATED
+
+-   **Laminas Cache** is deprecated since 4.9.0
+    -   `Cache\Core\Lotgd` use `$cache = \LotgdKernel::get('cache.app');` instead, for default app cache.
+    -   For create your own cache, can add new pools in `config/packages/cache.yaml`. See in **CHANGES** section
+    -   Fixed class **src/core/Fixed/Cache.php** is deprecated since 4.9.0
+
+### :wrench: FIXES
+
+-   **public/common_common.php** No recreate ".env.local.php" file if exist
+-   **public/globaluserfunctions.php** Fixed error, now use `LotgdNavigation::` instead of `LotgdRequest::`
+
+### :x: REMOVES and/or Break Changes
+
+-   Remove dependency of **Laminas Http** from `composer.json`
+-   Remove dependency of **Laminas Session** from `composer.json`
+-   Remove dependency of **DoctrineOrmModule** from `composer.json`
+-   **lib/modules.php** Remove function `module_delete_oldvalues` not in use
+-   **src/core/Component/FlashMessages.php** and **src/core/Factory/Component/FlashMessages.php**
+    -   Can use `LotgdKernel::get('session')->getFlashBag()` or `LotgdFlashMessages::` static class (recomended static class).
+-   _BC_ **src/core/Pattern/FlashMessenger.php** if you use this file, remove it, and use  `LotgdFlashMessages::` static class
+-   **src/core/Output/Collector.php** deleted deprecated functions:
+    -   `sustitute(string $out)`
+-   **Doctrine Factory** Remove Doctrine Orm Module factory, use `$doctrine = LotgdKernel::get('doctrine.orm.entity_manager')` or `Doctrine::` static class
+
+### :notebook: NOTES
+
+-   **Upgrade/Install problems**
+    -   If you have some problems when install or upgrade this version:
+        -   First try to empty cache: `var/` delete this folder.
+            -   `storage/cache/*` can empty with console comand `php bin/lotgd storage:cache_clear`
+        -   Second read info in `storage/log/tracy/*` files, and see the problem
+        -   If you can resolver problem go to: https://github.com/idmarinas/lotgd-game/issues
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
 # Version: 4.8.0
 
 ### :cyclone: CHANGES
