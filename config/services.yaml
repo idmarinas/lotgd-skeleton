@@ -4,51 +4,52 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    lotgd_core.doctrine_prefix: '%env(DATABASE_PREFIX)%'
+    lotgd_core.doctrine_prefix: "%env(DATABASE_PREFIX)%"
+    lotgd_core.number.format.decimal.point: '.'
+    lotgd_core.number.format.thousands.sep: ','
     doctrine.orm.entity_manager.class: Lotgd\Core\Doctrine\ORM\EntityManager
 
 services:
     # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
+        autowire: true # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     Lotgd\Core\:
-        resource: '../src/core/'
+        resource: "../src/core/"
         exclude:
-            - '../src/core/DependencyInjection/'
-            - '../src/core/Form/Element/'
-            - '../src/core/Form/ElementFactory.php'
-            - '../src/core/Form/LotgdElementFactoryInterface.php'
-            - '../src/core/Command/'
-            - '../src/core/Exception/'
-            - '../src/core/Factory/'
-            - '../src/core/Fixed/'
-            - '../src/core/Installer/'
-            - '../src/core/Tests/'
-            - '../src/core/Twig/'
-            - '../src/core/Application.php'
-            - '../src/core/Event.php'
-            - '../src/core/EventManagerAware.php'
-            - '../src/core/Hook.php'
-            - '../src/core/Http.php'
-            - '../src/core/Kernel.php'
-            - '../src/core/ServiceManager.php'
-            - '../src/core/Session.php'
+            - "../src/core/DependencyInjection/"
+            - "../src/core/Form/Element/"
+            - "../src/core/Form/ElementFactory.php"
+            - "../src/core/Form/LotgdElementFactoryInterface.php"
+            - "../src/core/Command/"
+            - "../src/core/Exception/"
+            - "../src/core/Factory/"
+            - "../src/core/Fixed/"
+            - "../src/core/Installer/"
+            - "../src/core/Tests/"
+            - "../src/core/Twig/"
+            - "../src/core/Application.php"
+            - "../src/core/Event.php"
+            - "../src/core/EventManagerAware.php"
+            - "../src/core/Hook.php"
+            - "../src/core/Kernel.php"
+            - "../src/core/ServiceManager.php"
+            - "../src/core/Session.php"
     Lotgd\Local\:
-        resource: '../src/local/'
+        resource: "../src/local/"
         exclude:
-            - '../src/local/DependencyInjection/'
-            - '../src/local/Form/Element/'
-            - '../src/local/Command/'
-            - '../src/local/Exception/'
-            - '../src/local/Factory/'
-            - '../src/local/Fixed/'
-            - '../src/local/Installer/'
-            - '../src/local/Tests/'
-            - '../src/local/Twig/'
+            - "../src/local/DependencyInjection/"
+            - "../src/local/Form/Element/"
+            - "../src/local/Command/"
+            - "../src/local/Exception/"
+            - "../src/local/Factory/"
+            - "../src/local/Fixed/"
+            - "../src/local/Installer/"
+            - "../src/local/Tests/"
+            - "../src/local/Twig/"
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -65,4 +66,105 @@ services:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         arguments:
-            - '%lotgd_core.doctrine_prefix%'
+            - "%lotgd_core.doctrine_prefix%"
+
+    # Jaxon-PHP Service
+    Lotgd\Core\Service\Jaxon:
+        arguments:
+            - {
+                  core:
+                      {
+                          request: { uri: "jaxon.php" },
+                          process: { exit: false },
+                      },
+                  dialogs:
+                      {
+                          default: { message: toastr, modal: semantic },
+                          classes:
+                              {
+                                  semantic: Lotgd\Core\Jaxon\Library\Semantic\Modal,
+                              },
+                          toastr:
+                              {
+                                  options:
+                                      {
+                                          progressBar: true,
+                                          newestOnTop: false,
+                                          closeButton: true,
+                                          preventDuplicates: true,
+                                          timeOut: 30000,
+                                          extendedTimeOut: 15000,
+                                      },
+                              },
+                      },
+              }
+    lotgd.core.jaxon:
+        alias: Lotgd\Core\Service\Jaxon
+        public: true
+
+    # View Laminas Service
+    Laminas\View\Helper\HeadLink:
+        public: true
+    Laminas\View\Helper\HeadMeta:
+        public: true
+        calls:
+            - setView: ['@Laminas\View\Renderer\PhpRenderer']
+    Laminas\View\Helper\HeadScript:
+        public: true
+    Laminas\View\Helper\HeadStyle:
+        public: true
+    Laminas\View\Helper\HeadTitle:
+        public: true
+    Laminas\View\Helper\InlineScript:
+        public: true
+    Laminas\View\Renderer\PhpRenderer: ~ # Laminas\View\Helper\HeadMeta
+
+    # Output
+    Lotgd\Core\Output\Code:
+        public: true
+    Lotgd\Core\Output\Color:
+        public: true
+    Lotgd\Core\Output\Format:
+        public: true
+        calls:
+            - setDecPoint: ['%lotgd_core.number.format.decimal.point%']
+            - setThousandsSep: ['%lotgd_core.number.format.thousands.sep%']
+    Lotgd\Core\Service\Censor:
+        lazy: true
+    Lotgd\Core\Output\Censor:
+        alias: Lotgd\Core\Service\Censor
+        public: true
+    Lotgd\Core\Output\Commentary:
+        lazy: true
+        public: true
+        calls:
+            - setEntity: ['@Lotgd\Core\Entity\Commentary']
+
+    # LoTGD Installer
+    Lotgd\Core\Installer\Install:
+        lazy: true
+        public: true
+
+    # LoTGD Settings
+    Lotgd\Core\Lib\Settings:
+        public: true
+        calls:
+            - setDoctrine: ['@doctrine.orm.entity_manager']
+            - setCache: ['@core.settings.cache']
+            - loadSettings: []
+
+    # LoTGD PvP
+    Lotgd\Core\Pvp\Listing:
+        public: true
+
+    # LoTGD Tools
+    Lotgd\Core\Tool\Sanitize:
+        public: true
+
+    # LoTGD navigation
+    Lotgd\Core\Navigation\AccessKeys:
+        public: true
+
+    # Lotgd
+    Lotgd\Core\Character\Stats:
+        public: true

@@ -2,12 +2,154 @@
 
 See CHANGELOG.txt for see changes made for Oliver Brendel +nb Edition
 
-Visit the [Wiki](https://github.com/idmarinas/lotgd-game/wiki) for more details. 
+Visit the [Wiki](https://github.com/idmarinas/lotgd-game/wiki) for more details.  
 Visit the [Documentation](https://idmarinas.github.io/lotgd-game/) for more details.  
 Visit the [README](https://github.com/idmarinas/lotgd-game/blob/master/README.md).   
 Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V2.md)  
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 
+
+# Version: 4.10.0
+
+### :cyclone: CHANGES
+
+-   _Migrated_ **Laminas Cache** to **Symfony Cache**.
+    -   Deleted usage of `LotgdCache::` that not have used.
+-   _Migrated_ **Jaxon Factory** to **Jaxon LoTGD Kernel**
+    -   Now can get a instance of Jaxon with `LotgdKernel::get('lotgd.core.jaxon')`
+-   _Migrated_ **Factories** to **LoTGD Kernel Services**
+    -   Note: For get use `LotgdKernel::get('Laminas\View\Helper\HeadLink')` for example 
+    -   `Laminas\View\Helper\HeadLink`
+    -   `Laminas\View\Helper\HeadMeta`
+    -   `Laminas\View\Helper\HeadScript`
+    -   `Laminas\View\Helper\HeadStyle`
+    -   `Laminas\View\Helper\HeadTitle`
+    -   `Laminas\View\Helper\InlineScript`
+-   _Migrated_ **LoTGD Install factory** to **LoTGD Install Kernel service**
+-   _Migrated_ **Lotgd\Core\Lib\Settings factory** to **LoTGD Kernel service**
+-   _Migrated_ **Lotgd\Core\Output\Format factory** to **LoTGD Kernel service**
+-   _Migrated_ **Lotgd\Core\Output\Censor factory** to **LoTGD Kernel service**
+-   _Migrated_ **Lotgd\Core\Pvp\Listing factory** to **LoTGD Kernel service**
+-   _Migrated_ **Lotgd\Core\Output\Commentary factory** to **LoTGD Kernel service**
+-   _Migrated_ **Lotgd\Core\Navigation\AccessKeys factory** to **LoTGD Kernel service**
+-   _Migrated_ **Lotgd\Core\Character\Stats factory** to **LoTGD Kernel service**
+
+### :star: FEATURES
+
+-   **Traits**:
+    -   `src/core/Pattern/Container.php` new functions:
+        -   `getKernel()` get the new LoTGD Kernel
+        -   `getService(string $name)` get a service from LoTGD Kernel
+-   **src/functions.php**
+    -   This file contain functions that are in `lib/` dir
+    -   This file is autoload by `composer`
+    -   Functions migrated:
+        -   `e_rand`
+        -   `r_rand`
+        -   `is_email`
+        -   `createstring`
+        -   `bell_rand`
+        -   `list_files`
+        -   `_curl`
+        -   `_sock`
+        -   `pullurl`
+        -   `safeescape`
+        -   `nltoappon`
+
+### :fire: DEPRECATED
+
+-   **src/core/Pattern/Container.php** marked deprecated functions
+    -   `setContainer(ContainerInterface $container)` 
+    -   `getContainer($name = null)` 
+    -   `Laminas Service Manager` is marked as deprecated, all factories are moved to LoTGD Kernel
+    -   Avoid use `Laminas Service Manager` and use LoTGD Kernel
+
+### :wrench: FIXES
+
+-   **public/create.php** Fixed error in creation of forgot password url
+
+### :x: REMOVES and/or Break Changes
+
+-   **Potential BC**: Remove component `Lotgd\Core\Component\Filesystem.php` use `Symfony Filesystem` direct
+-   **Potential BC**: Remove factory of `Lotgd\Core\Jaxon` use `LotgdKernel::get('lotgd.core.jaxon')`
+-   **Potential BC**: Remove factory of `Lotgd\Core\Character\Stats` use `LotgdKernel::get('Lotgd\Core\Character\Stats')`
+-   Remove factory `Laminas\View\Helper\BasePath` no need.
+-   Remove factory `Lotgd\Core\Lib\Settings` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Lib\Settings')`
+-   Remove factory `Lotgd\Core\Output\Format` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Output\Format')`
+-   Remove factory `Lotgd\Core\Output\Format` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Output\Format')`
+-   Remove factory `Lotgd\Core\Pvp\Listing` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Pvp\Listing')`
+-   Remove factory `Lotgd\Core\Output\Commentary` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Output\Commentary')`
+-   Remove factory `Lotgd\Core\Navigation\AccessKeys` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Navigation\AccessKeys')`
+-   Remove factories for `Laminas View Helper`, use service instead. Example: `LotgdKernel::get('Laminas\View\Helper\HeadLink')`
+    -   `Laminas\View\Helper\HeadLink`
+    -   `Laminas\View\Helper\HeadMeta`
+    -   `Laminas\View\Helper\HeadScript`
+    -   `Laminas\View\Helper\HeadStyle`
+    -   `Laminas\View\Helper\HeadTitle`
+    -   `Laminas\View\Helper\InlineScript`
+-   **lib/output.php** Delete deprecated functions
+    -   `rawoutput($indata)`
+    -   `set_block_new_output($block)` 
+-   **src/core/Output/Collector.php** Delete deprecated class (file) and all functions
+    -   `set_block_new_output($block)`
+    -   `get_block_new_output()`
+    -   `get_colormap_escaped()`
+    -   `get_colormap_escaped_array()`
+    -   `get_colormap()`
+    -   `rawoutput($indata)`
+    -   `get_output()`
+    -   `get_rawoutput()`
+    -   `debug($text, $force)`
+    -   `appoencode(string $data)`
+-   **src/core/Pattern/Output.php** delete deprecated function
+    -   `getOutput()`
+-   **src/core/Http.php** remove deprecated class file (and factory).
+-   **Removed some config files**
+    -   Note: this files not are in use by LoTGD Core.
+    -   **BC** only if you update this global files
+    -   `config/autoload/global/delegators-lotgd-core.php`
+    -   `config/autoload/global/form-lotgd-core.php`
+    -   `config/autoload/global/hydrators-lotgd-core.php`
+    -   `config/autoload/global/initializers-lotgd-core.php`
+    -   `config/autoload/global/input-filter-lotgd-core.php`
+    -   `config/autoload/global/invokables-lotgd-core.php`
+    -   `config/autoload/global/jaxon-lotgd-core.php` Jaxon are migrated to Kernel
+    -   `config/autoload/global/services-lotgd-core.php`
+    -   `config/autoload/global/session-lotgd-core.php` Session are migrated to Kernel
+    -   `config/autoload/global/shared-lotgd-core.php`
+-   **lib/e_rand.php** delete file.
+    -   Deleted functions:
+        -   `make_seed()` 
+-   **lib/is_email.php** delete file.
+-   **lib/arraytourl.php** delete file.
+    -   Deleted functions:
+        -   `arraytourl()` 
+        -   `urltoarray()` 
+-   **lib/arrayutil.php** delete file.
+-   **lib/bell_rand.php** delete file.
+-   **lib/listfiles.php** delete file.
+-   **lib/pullurl.php** delete file.
+-   **lib/safeescape.php** delete file.
+-   **lib/nltoappon.php** delete file.
+-   **lib/output.php** delete file.
+    -   Delete obsolete functions:
+        -   `debug()`
+        -   `appoencode()`
+
+### :notebook: NOTES
+
+-   **Upgrade/Install for version 4.9.0 and up**
+    -   First, upload files to your server (production compilation): 
+    -   Second, empty cache: 
+        -   `var/` delete this folder (or use comand in console `php bin/console cache:clear`).
+            -   From version 4.9.0 use Symfony Kernel, so work like Symfony Framework.
+        -   `storage/cache/*` can empty with console comand `php bin/lotgd storage:cache_clear`
+            -   Not delete `.gitkeep` files. Remember to keep the main structure of the folder `storage/cache/`
+            -   It is highly recommended to use the command  `php bin/lotgd storage:cache_clear` instead delete folder.
+    -   Third, read info in `storage/log/tracy/*` files, and see the problem.
+    -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
 
 # Version: 4.9.0
 

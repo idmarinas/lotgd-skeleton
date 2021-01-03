@@ -75,6 +75,7 @@
         "symfony/framework-bundle": "5.2.*",
         "symfony/intl": "5.2.*",
         "symfony/options-resolver": "5.2.*",
+        "symfony/proxy-manager-bridge": "5.2.*",
         "symfony/security-csrf": "5.2.*",
         "symfony/string": "5.2.*",
         "symfony/translation": "5.2.*",
@@ -83,7 +84,7 @@
         "symfony/webpack-encore-bundle": "^1.8",
         "symfony/yaml": "5.2.*",
         "tracy/tracy": "^2.8",
-        "twig/twig": "^2.13"
+        "twig/twig": "^2.14"
     },
     "require-dev": {
         "idmarinas/tracy-twig-bar": "^0.1",
@@ -105,7 +106,8 @@
             "Lotgd\\Ajax\\Local\\": "src/ajax/local/",
             "Lotgd\\Ajax\\Pattern\\Core\\": "src/ajax/pattern/core/",
             "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/"
-        }
+        },
+		"files": ["src/functions.php"]
     },
     "conflict": {
         "symfony/symfony": "*"
