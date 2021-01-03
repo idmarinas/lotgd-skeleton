@@ -69,6 +69,7 @@ const config = {
             '{/**/.gitkeep,/.env,/.codeclimate.yml,/.editorconfig,/.eslintignore,/.eslintrc.js,/.gitignore,/.php_cs,/.stickler.yml,/.watchmanconfig}',
             //-- Ignore all dist folders
             '!{*.,}dist{,/**}',
+            '!src/{functions,functions_old}.php',
             //-- Ignore dependency directories
             '!{bower_components,node_modules,vendor,var}{,/**}'
         ]
