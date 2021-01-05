@@ -67,6 +67,7 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 ### :wrench: FIXES
 
 -   **public/create.php** Fixed error in creation of forgot password url
+-   **themes/layout.html.twig** and **themes/layout/header.html.twig** use `uncolorize` filter to sanitize title. (This avoid show color codes as plain text)
 
 ### :x: REMOVES and/or Break Changes
 
@@ -76,7 +77,7 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 -   Remove factory `Laminas\View\Helper\BasePath` no need.
 -   Remove factory `Lotgd\Core\Lib\Settings` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Lib\Settings')`
 -   Remove factory `Lotgd\Core\Output\Format` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Output\Format')`
--   Remove factory `Lotgd\Core\Output\Format` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Output\Format')`
+-   Remove factory `Lotgd\Core\Output\Censor` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Output\Format')`
 -   Remove factory `Lotgd\Core\Pvp\Listing` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Pvp\Listing')`
 -   Remove factory `Lotgd\Core\Output\Commentary` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Output\Commentary')`
 -   Remove factory `Lotgd\Core\Navigation\AccessKeys` use service instead. Example: `LotgdKernel::get('Lotgd\Core\Navigation\AccessKeys')`
@@ -87,9 +88,6 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
     -   `Laminas\View\Helper\HeadStyle`
     -   `Laminas\View\Helper\HeadTitle`
     -   `Laminas\View\Helper\InlineScript`
--   **lib/output.php** Delete deprecated functions
-    -   `rawoutput($indata)`
-    -   `set_block_new_output($block)` 
 -   **src/core/Output/Collector.php** Delete deprecated class (file) and all functions
     -   `set_block_new_output($block)`
     -   `get_block_new_output()`
@@ -133,6 +131,8 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 -   **lib/nltoappon.php** delete file.
 -   **lib/output.php** delete file.
     -   Delete obsolete functions:
+        -   `rawoutput($indata)`
+        -   `set_block_new_output($block)` 
         -   `debug()`
         -   `appoencode()`
 
@@ -177,7 +177,7 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
                     pools:
                         core.settings.cache:
                             adapter: cache.app # Use default configuration
-                            public: true # Thnis is necesary for get your cache from service container. Example: LotgdKernel::get('core.settings.app')
+                            public: true # This is necesary for get your cache from service container. Example: LotgdKernel::get('core.settings.app')
         ```
 -   _Migrated_ **Laminas Http** to **Symfony HttpFoundation**
     -   `LotgdRequest::` and `LotgdResponse::` static class now use **Symfony HttpFoundation**
