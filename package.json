@@ -1,7 +1,7 @@
 {
     "name": "idmarinas-lotgd",
     "title": "The Legend of the Green Dragon",
-    "version": "4.10.0",
+    "version": "4.11.0",
     "description": "A new version of The Legend of the Green Dragon, upgrade scripts and optimization for PHP >= 7.2.",
     "time": "2017-04-21",
     "engines": {
@@ -88,8 +88,9 @@
         "lotgd-dev": "npm run dev && gulp",
         "lotgd-prod": "npm run build && gulp --env prod",
         "lotgd-zip": "npm run build && gulp --env prod --zip",
-        "lotgd-release": "npm run build && gulp --env prod --zip && php phpDocumentor.phar",
-        "lotgd-skeleton": "gulp skeleton"
+        "lotgd-skeleton": "gulp skeleton",
+        "lotgd-docs": "php phpDocumentor.phar",
+        "lotgd-release": "npm run lotgd-zip && npm run lotgd-docs && npm run lotgd-skeleton"
     },
     "browserslist": [
         "> 0.1%",

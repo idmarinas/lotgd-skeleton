@@ -54,7 +54,6 @@
         "laminas/laminas-hydrator": "^3.1",
         "laminas/laminas-i18n": "^2.10",
         "laminas/laminas-log": "^2.12",
-        "laminas/laminas-mail": "^2.12",
         "laminas/laminas-math": "^3.2",
         "laminas/laminas-paginator": "^2.8",
         "laminas/laminas-serializer": "^2.9",
@@ -62,6 +61,7 @@
         "laminas/laminas-stdlib": "^3.2.0",
         "laminas/laminas-view": "^2.11",
         "marioblazek/twig-byte-units-extension": "^1.0",
+        "nucleos/user-bundle": "^1.6",
         "snipe/banbuilder": "^2.3",
         "stof/doctrine-extensions-bundle": "^1.5",
         "symfony/asset": "5.2.*",
@@ -74,16 +74,19 @@
         "symfony/form": "5.2.*",
         "symfony/framework-bundle": "5.2.*",
         "symfony/intl": "5.2.*",
+        "symfony/mailer": "5.2.*",
         "symfony/options-resolver": "5.2.*",
         "symfony/proxy-manager-bridge": "5.2.*",
+        "symfony/security-bundle": "5.2.*",
         "symfony/security-csrf": "5.2.*",
         "symfony/string": "5.2.*",
         "symfony/translation": "5.2.*",
-        "symfony/twig-bridge": "5.2.*",
+        "symfony/twig-bundle": "5.2.*",
         "symfony/validator": "5.2.*",
         "symfony/webpack-encore-bundle": "^1.8",
         "symfony/yaml": "5.2.*",
         "tracy/tracy": "^2.8",
+        "twig/extra-bundle": "^2.12",
         "twig/twig": "^2.14"
     },
     "require-dev": {
@@ -94,6 +97,7 @@
         "symfony/browser-kit": "5.2.*",
         "symfony/css-selector": "5.2.*",
         "symfony/debug-bundle": "5.2.*",
+        "symfony/maker-bundle": "^1.28",
         "symfony/stopwatch": "5.2.*",
         "symfony/var-dumper": "5.2.*",
         "symfony/web-profiler-bundle": "5.2.*"
@@ -105,7 +109,8 @@
             "Lotgd\\Ajax\\Core\\": "src/ajax/core/",
             "Lotgd\\Ajax\\Local\\": "src/ajax/local/",
             "Lotgd\\Ajax\\Pattern\\Core\\": "src/ajax/pattern/core/",
-            "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/"
+            "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/",
+            "LotgdCore\\AdvertisingBundle\\": "lib/AdvertisingBundle/src/"
         },
 		"files": ["src/functions.php"]
     },

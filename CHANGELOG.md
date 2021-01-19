@@ -9,6 +9,99 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 
 
+# Version: 4.11.0
+
+### :cyclone: CHANGES
+
+-   _Migrated_ **Lotgd\Core\Navigation\Navigation** factory to **LoTGD Kernel service**
+    -   `LotgdNavigation::` static class get the new Kernel service
+-   _Migrated_ **Lotgd\Core\Http\Request** and **Lotgd\Core\Http\Response** factory to **LoTGD Kernel service**
+    -   `LotgdRequest::` and `LotgdResponse` static class get the new Kernel service
+-   _Migrated_ **Lotgd\Core\EventManager\Hook** **LoTGD Kernel service**
+    -   `LotgdHook::` static class get the new Kernel service
+-   _Migrated_ **Lotgd\Core\Template\Params** factory to **LoTGD Kernel service**
+-   **Translation system**
+    -   **Laminas Translator**
+        -   Remove default scope `page` from text domain.
+        -   Now can add translator files to `translations/[locale]` folder, and no need move to `translations/[locale]/page` folder
+    -   **Twig translation filter**
+        -   Filter `trans` now use Symfony Translator
+    -   Translation files in `translations/en`
+        -   Rename all files prefixed with name of folder and moved to root folder `translations/en`
+            -   Example: `translations/en/page/about.yaml` to `translations/en/page_about.yaml` 
+        -   This is for compatibility with Laminas Translator        
+-   **LoTGD pages**
+    -   Templates of pages now use `trans` filter. 
+        -   Adapted all text domains to use with Symfony Translator.
+        -   Work with Laminas Translator too.
+
+### :star: FEATURES
+
+-   **src/core/Pattern/Cache.php**
+    -   Added new function for get LoTGD Cache App Tagged. Service `core.lotgd.cache` 
+-   **src/core/Paginator/Adapter/Doctrine.php**
+    -   Added option to get results as objects.
+        -   Const `HYDRATE_OBJECT`
+-   **src/core/Pattern/Translator.php** new function
+    -   `messageFormatter($message, $parameters, $locale)` Only format a message with `MessageFormatter::class`.
+        -   This function NO translate the message
+-   **LoTGD Core Advertising Bundle**
+    -   Create new bundle for advertising providers like Google Adsense
+        -   Providers available:
+            -   _Google Adsense_
+    -   Can create your on providers.
+    -   In this version **LoTGD Core 4.11.0** need add your Twig Extension as a factory of Laminas Service Manager like other Twig Extensions.
+
+### :fire: DEPRECATED
+
+-   **Lotgd\Core\ServiceManager** are deprecated and deleted in version 5.0.0
+    -   Use **LoTGD Kernel service** for create service.
+-   **Lotgd\Core\Hook** are deprecated and deleted in version 7.0.0 (or before)
+    -   In version 7.0.0 LoTGD Core is a Symfony App
+    -   LoTGD Core use Symfony Event system in this version, that is more powerfull.
+    -   For now use old hook system.
+
+### :wrench: FIXES
+
+-   **Form Configuration Events** use correct label for Events chances.
+
+### :x: REMOVES and Break Changes
+
+-   Remove factory of `Lotgd\Core\EventManager\Event` not in use.
+-   Remove factory of `Lotgd\Core\Navigation\Navigation` use `LotgdKernel::get('Lotgd\Core\Navigation\Navigation')` instead.
+-   Remove factory of `Lotgd\Core\Http\Request` use `LotgdKernel::get('Lotgd\Core\Http\Request')` instead.
+-   Remove factory of `Lotgd\Core\Http\Response` use `LotgdKernel::get('Lotgd\Core\Http\Response')` instead.
+-   Remove factory of `Lotgd\Core\EventManager\Hook` use `LotgdKernel::get('Lotgd\Core\EventManager\Hook')` instead.
+-   Remove factory of `Lotgd\Core\Template\Params` use `LotgdKernel::get('Lotgd\Core\Template\Params')` instead.
+-   Remove file `src/core/Factory/Doctrine/Extension/TablePrefix.php` not in use.
+-   Remove file `src/core/Pattern/EventManager.php` not in use.
+-   **BC** Remove factory `Lotgd\Core\SymfonyForm` use `\LotgdKernel::get('form.factory');` instead.
+    -   For work with LoTGD Kernel need make this changes:
+        -   Delete `Doctrine::detach($entity);` no is needed. 
+        -   Replace `$form->handleRequest();` for `$form->handleRequest(\LotgdRequest::_i());`
+        -   Replace `$method = $entity->getId() ? 'merge' : 'persist';` and `\Doctrine::{$method}($entity);` for `\Doctrine::persist($entity);`
+            -   No need check if is a new or update.
+        -   Add `\Doctrine::clear();` after block `if ($form->isSubmitted() && $form->isValid()) { /* ... */ }`
+            -   This is **important** for _avoid_ **Doctrine save** a **invalid form**.
+-   **Potential BC** Remove composer package `laminas/laminas-mail` use `LotgdKernel::get('lotgd.core.mailer')` (Symfony Mailer)
+-   **config/autoload/global/advertising-lotgd-core.php** delete, use `config/packages/lotgd_core_advertising.yaml` for config Adsense
+
+### :notebook: NOTES
+
+-   **Upgrade/Install for version 4.9.0 and up**
+    -   First, upload files to your server (production compilation): 
+    -   Second, empty cache: 
+        -   `var/` delete this folder (or use command in console `php bin/console cache:clear`).
+            -   From version 4.9.0 use Symfony Kernel, so work like Symfony Framework.
+        -   `storage/cache/*` can empty with console comand `php bin/lotgd storage:cache_clear`
+            -   Not delete `.gitkeep` files. Remember to keep the main structure of the folder `storage/cache/`
+            -   It is highly recommended to use the command  `php bin/lotgd storage:cache_clear` instead delete folder.
+            -   Note: if fail when run console command, manual delete: `storage/cache/service-manager.config.php` 
+    -   Third, read info in `storage/log/tracy/*` files, and see the problem.
+    -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
 # Version: 4.10.0
 
 ### :cyclone: CHANGES
@@ -466,7 +559,7 @@ Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 
 -   **Templates system**
     -   `templates/module/` are moved to `templates_modules/` folder
-        -   No BC, al work as before. But from now the templates of the modules will go in this new folder.
+        -   No BC, all work as before. But from now the templates of the modules will go in this new folder.
     -   Core templates are moved to `templates_core/` folder. These templates are not intended to be customizable
     -   New config option `twig_templates_paths`
         -   Now can add your templates to Twig, and use namespace.
