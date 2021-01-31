@@ -67,8 +67,17 @@
         "lotgd:skeleton:prepare": [
             "LoTGD\\Skeleton::skeleton",
             "LoTGD\\Skeleton::core",
-            "composer install"
+            "composer install",
+            "php bin/console cache:clear"
         ],
-        "post-create-project-cmd": "composer lotgd:skeleton:prepare"
+        "lotgd:prod:install": [
+            "composer install --no-dev --no-interaction --no-plugins --no-scripts",
+            "composer dump-env prod",
+            "php bin/console cache:clear"
+        ],
+        "post-create-project-cmd": [
+            "composer lotgd:skeleton:prepare",
+            "php bin/console lotgd:regenerate:app_secret"
+        ]
     }
 }
