@@ -1,5 +1,5 @@
 {
-    "name": "idmarinas/lotgd",
+    "name": "idmarinas/lotgd-skeleton",
     "description": "A new version of The Legend of the Green Dragon, upgrade scripts and optimization for PHP >= 7.2",
     "config": {
         "optimize-autoloader": true,
@@ -90,6 +90,7 @@
         "twig/twig": "^2.14"
     },
     "require-dev": {
+        "idmarinas/lotgd": "^4.12",
         "idmarinas/tracy-twig-bar": "^0.1",
         "macfja/tracy-doctrine-sql": "dev-master",
         "milo/vendor-versions": "^1.1",
@@ -102,6 +103,12 @@
         "symfony/var-dumper": "5.2.*",
         "symfony/web-profiler-bundle": "5.2.*"
     },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Lotgd\\Core\\": "src/core/",
@@ -111,8 +118,7 @@
             "Lotgd\\Ajax\\Pattern\\Core\\": "src/ajax/pattern/core/",
             "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/",
             "LotgdCore\\AdvertisingBundle\\": "lib/AdvertisingBundle/src/"
-        },
-		"files": ["src/functions.php"]
+        }
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -128,11 +134,5 @@
 			"type": "paypal",
 			"url": "https://www.paypal.me/idmarinas"
 		}
-	],
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        }
-    }
+    ]
 }
