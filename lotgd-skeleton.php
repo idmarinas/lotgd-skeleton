@@ -9,7 +9,9 @@ class Skeleton
 {
     public static function skeleton()
     {
+        echo "\n";
         echo 'Coping files of LoTGD Core to Skeleton for active commands in local dev.';
+        echo "\n";
 
         $fs = new FileSystem();
 
@@ -23,7 +25,9 @@ class Skeleton
 
     public static function core()
     {
+        echo "\n";
         echo 'Coping files of LoTGD Core to "_core_files/" folder';
+        echo "\n";
 
         $finder = new Finder();
         $fs     = new FileSystem();
