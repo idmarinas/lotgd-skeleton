@@ -31,19 +31,41 @@ This skeleton does not include the core files, they are not necessary for the cr
 
 ## IDMarinas Edition
 
-Skeleton version for IDMarinas Edition: **_4.12.*_**
+Skeleton version for IDMarinas Edition: **_5.0.*_**
 
 ## First steps
+
+-   You need have installed `npm`, `composer` and `gulp` as global commands.
+
+    >   _Gulp_ globally, run command `npm install gulp-cli -g`
+    >   _Composer_ globally see https://getcomposer.org/download/
+
+### Method 1
+-   Run command `composer create-project idmarinas/lotgd-skeleton MyCustomLoTGD` to create a skeleton of LoTGD Core
+    >   It will create a MyCustomLoTGD directory with a new LoTGD Core application inside.
 -   Run command `npm install` for install all nodes packages.
     -   Note: When Fomantic Ui asks you to install, select "Skip install" and then accept everything.
     -   Not is necesary install in proyect folder.
--   Run command `composer install` for install all composer packages.
--   Download lasted zip release and copy files to `_core_files/` folder
--   Make your custom modules
--   Run command `npm run lotgd-prod` for build a version for production server, located in `dist/prod/`
--   Run command `npm run lotgd-dev` for build a version for development server, located in `dist/dev/`
 
-> You probably need to install _Gulp_ globally, run the following command `npm install gulp-cli -g`
+### Method 2
+-   Clone repository in your directory.
+-   Run command `composer install` for install all composer packages.
+-   Run command `composer lotgd:skeleton:prepare`
+    -   This copy files to `_core_files/` folder for you.
+    -   Olso copy files needed for commands in your `MyCustomLoTGD` directory.
+-   Run command `npm install` for install all nodes packages.
+    -   Note: When Fomantic Ui asks you to install, select "Skip install" and then accept everything.
+    -   Not is necesary install in proyect dir.
+
+## Prepare your custom LoTGD
+
+-   Now only need prepare all your customizations and modules
+
+## Prepare for deployment
+
+-   Run command `npm run lotgd-dev` for build a version for development server, located in `dist/dev/`
+-   Run command `npm run lotgd-prod` for build a version for production server, located in `dist/prod/`
+
 ## Tips
 -   **Composer and Package**
     -   You can add new dependencies as your project needs them, but do NOT remove any of the default ones.
