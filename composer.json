@@ -113,8 +113,7 @@
         },
         "classmap": ["lotgd-skeleton.php"],
         "exclude-from-classmap": [
-            "vendor/idmarinas/lotgd/src/",
-            "vendor/idmarinas/lotgd/lib/"
+            "vendor/idmarinas/lotgd/*"
         ]
     },
     "scripts": {
@@ -125,8 +124,7 @@
         "lotgd:skeleton:prepare": [
             "LoTGD\\Skeleton::skeleton",
             "LoTGD\\Skeleton::core",
-            "composer install",
-            "npm install"
+            "composer install"
         ],
         "post-create-project-cmd": "composer lotgd:skeleton:prepare"
     }
