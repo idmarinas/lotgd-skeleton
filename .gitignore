@@ -260,6 +260,24 @@ $RECYCLE.BIN/
 
 ### LoTGD ignores ###
 
+# Ignore core content in lib/
+
+lib/AdvertisingBundle/
+
+# Ignore core content of LoTGD (except .gitkeep)
+/src/ajax/core/**
+/src/ajax/core/**/
+!/src/ajax/core/**/.gitkeep
+!/src/ajax/core/**/README.md
+/src/ajax/pattern/core/**
+/src/ajax/pattern/core/**/
+!/src/ajax/pattern/core/**/.gitkeep
+!/src/ajax/pattern/core/**/README.md
+/src/core/**
+!/src/core/**/
+!/src/core/**/.gitkeep
+!/src/core/**/README.md
+
 # Ignore all content of storage folder except .gitkeep file
 /storage/**
 !/storage/**/
