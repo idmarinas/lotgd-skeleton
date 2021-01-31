@@ -88,7 +88,7 @@
         "twig/twig": "^2.14"
     },
     "require-dev": {
-        "idmarinas/lotgd": "^5.0",
+        "idmarinas/lotgd": "dev-master",
         "idmarinas/tracy-twig-bar": "^0.1",
         "macfja/tracy-doctrine-sql": "dev-master",
         "milo/vendor-versions": "^1.1",
@@ -110,27 +110,24 @@
             "Lotgd\\Ajax\\Pattern\\Core\\": "src/ajax/pattern/core/",
             "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/",
             "LotgdCore\\AdvertisingBundle\\": "lib/AdvertisingBundle/src/"
-        }
+        },
+        "classmap": ["lotgd-skeleton.php"],
+        "exclude-from-classmap": [
+            "vendor/idmarinas/lotgd/src/",
+            "vendor/idmarinas/lotgd/lib/"
+        ]
     },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        }
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "5.2.*"
-        }
-    },
-    "funding": [
-		{
-			"type": "paypal",
-			"url": "https://www.paypal.me/idmarinas"
-		}
-    ]
+        },
+        "lotgd:skeleton:prepare": [
+            "LoTGD\\Skeleton::skeleton",
+            "LoTGD\\Skeleton::core",
+            "composer install",
+            "npm install"
+        ],
+        "post-create-project-cmd": "composer lotgd:skeleton:prepare"
+    }
 }
