@@ -61,6 +61,12 @@ Skeleton version for IDMarinas Edition: **_5.0.*_**
 
 ## Prepare your custom LoTGD
 
+-   Configure .env file with your data.
+    -   Can create multiple files for separate config for enviroment:
+        -   `.env.prod` contain data for production environment.
+        -   `.env.dev` contain data for development environment.
+        -   `.env.test` contain data for test environment.
+    -   Can read comments in `.env` for know how work `.env` files.
 -   Now only need prepare all your customizations and modules
 
 ## Prepare for deployment
