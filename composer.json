@@ -29,7 +29,7 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-session": "*",
-        "idmarinas/lotgd": "dev-master"
+        "idmarinas/lotgd": "^5.0"
     },
     "require-dev": {
         "idmarinas/tracy-twig-bar": "^0.1",
