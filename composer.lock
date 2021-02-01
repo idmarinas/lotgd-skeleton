@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69b29063c1d5878ba773f61116703aac",
+    "content-hash": "087a5bbbf50c7947236211e868b3685a",
     "packages": [
         {
             "name": "beberlei/doctrineextensions",
@@ -2166,147 +2166,6 @@
                 "wiki": "https://github.com/Atlantic18/DoctrineExtensions/tree/main/doc"
             },
             "time": "2021-01-23T23:40:14+00:00"
-        },
-        {
-            "name": "idmarinas/lotgd",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/idmarinas/lotgd-game.git",
-                "reference": "a74c6017884e771cc45865586a257876ee221d68"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/idmarinas/lotgd-game/zipball/a74c6017884e771cc45865586a257876ee221d68",
-                "reference": "a74c6017884e771cc45865586a257876ee221d68",
-                "shasum": ""
-            },
-            "require": {
-                "beberlei/doctrineextensions": "^1.2",
-                "bukashk0zzz/filter-bundle": "^4.0",
-                "cocur/slugify": "^4.0",
-                "composer/package-versions-deprecated": "1.11.99.1",
-                "composer/semver": "^3.2",
-                "cron/cron": "^1.4",
-                "doctrine/doctrine-bundle": "^2.2",
-                "doctrine/doctrine-migrations-bundle": "^3.0",
-                "doctrine/orm": "^2.7",
-                "ext-bcmath": "*",
-                "ext-ctype": "*",
-                "ext-curl": "*",
-                "ext-exif": "*",
-                "ext-gd": "*",
-                "ext-iconv": "*",
-                "ext-intl": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "ext-pdo": "*",
-                "ext-pdo_mysql": "*",
-                "ext-session": "*",
-                "ezyang/htmlpurifier": "^4.13",
-                "gedmo/doctrine-extensions": "^3.0",
-                "jaxon-php/jaxon-core": "^3.2",
-                "jaxon-php/jaxon-dialogs": "^3.1",
-                "laminas/laminas-code": "^3.4",
-                "laminas/laminas-escaper": "^2.6",
-                "laminas/laminas-eventmanager": "^3.2",
-                "laminas/laminas-filter": "^2.9",
-                "laminas/laminas-hydrator": "^3.1",
-                "laminas/laminas-i18n": "^2.10",
-                "laminas/laminas-log": "^2.12",
-                "laminas/laminas-math": "^3.2",
-                "laminas/laminas-paginator": "^2.8",
-                "laminas/laminas-serializer": "^2.9",
-                "laminas/laminas-stdlib": "^3.2.0",
-                "laminas/laminas-validator": "^2.14",
-                "laminas/laminas-view": "^2.11",
-                "marioblazek/twig-byte-units-extension": "^1.0",
-                "nucleos/user-bundle": "^1.6",
-                "php": "^7.3",
-                "snipe/banbuilder": "^2.3",
-                "stof/doctrine-extensions-bundle": "^1.5",
-                "symfony/asset": "5.2.*",
-                "symfony/console": "5.2.*",
-                "symfony/dotenv": "5.2.*",
-                "symfony/expression-language": "5.2.*",
-                "symfony/filesystem": "5.2.*",
-                "symfony/finder": "5.2.*",
-                "symfony/flex": "^1.3.1",
-                "symfony/form": "5.2.*",
-                "symfony/framework-bundle": "5.2.*",
-                "symfony/http-client": "5.2.*",
-                "symfony/intl": "5.2.*",
-                "symfony/lock": "5.2.*",
-                "symfony/mailer": "5.2.*",
-                "symfony/options-resolver": "5.2.*",
-                "symfony/proxy-manager-bridge": "5.2.*",
-                "symfony/security-bundle": "5.2.*",
-                "symfony/security-csrf": "5.2.*",
-                "symfony/serializer": "5.2.*",
-                "symfony/string": "5.2.*",
-                "symfony/translation": "5.2.*",
-                "symfony/twig-bundle": "5.2.*",
-                "symfony/validator": "5.2.*",
-                "symfony/webpack-encore-bundle": "^1.8",
-                "symfony/yaml": "5.2.*",
-                "tracy/tracy": "^2.8",
-                "twig/extra-bundle": "^2.12",
-                "twig/twig": "^2.14"
-            },
-            "conflict": {
-                "symfony/symfony": "*"
-            },
-            "require-dev": {
-                "idmarinas/tracy-twig-bar": "^0.1",
-                "macfja/tracy-doctrine-sql": "dev-master",
-                "milo/vendor-versions": "^1.1",
-                "phan/phan": "^3.2",
-                "symfony/browser-kit": "5.2.*",
-                "symfony/css-selector": "5.2.*",
-                "symfony/debug-bundle": "5.2.*",
-                "symfony/maker-bundle": "^1.28",
-                "symfony/stopwatch": "5.2.*",
-                "symfony/var-dumper": "5.2.*",
-                "symfony/web-profiler-bundle": "5.2.*"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "symfony": {
-                    "allow-contrib": false,
-                    "require": "5.2.*"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Lotgd\\Core\\": "src/core/",
-                    "Lotgd\\Local\\": "src/local/",
-                    "Lotgd\\Ajax\\Core\\": "src/ajax/core/",
-                    "Lotgd\\Ajax\\Local\\": "src/ajax/local/",
-                    "Lotgd\\Ajax\\Pattern\\Core\\": "src/ajax/pattern/core/",
-                    "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/",
-                    "LotgdCore\\AdvertisingBundle\\": "lib/AdvertisingBundle/src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "CC-BY-NC-SA-2.0"
-            ],
-            "description": "A new version of The Legend of the Green Dragon, upgrade scripts and optimization , migrating to a Symfony Application",
-            "support": {
-                "issues": "https://github.com/idmarinas/lotgd-game/issues",
-                "source": "https://github.com/idmarinas/lotgd-game/tree/master"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.me/idmarinas",
-                    "type": "paypal"
-                }
-            ],
-            "time": "2021-01-31T17:55:14+00:00"
         },
         {
             "name": "jaxon-php/jaxon-core",
@@ -10847,7 +10706,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "idmarinas/lotgd": 20,
         "macfja/tracy-doctrine-sql": 20
     },
     "prefer-stable": true,

@@ -129,9 +129,6 @@
     "gedmo/doctrine-extensions": {
         "version": "v3.0.0"
     },
-    "idmarinas/lotgd": {
-        "version": "4.12.0"
-    },
     "idmarinas/tracy-twig-bar": {
         "version": "0.1.0"
     },

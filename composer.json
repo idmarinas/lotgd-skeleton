@@ -79,5 +79,20 @@
             "composer lotgd:skeleton:prepare",
             "php bin/console lotgd:regenerate:app_secret"
         ]
-    }
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.2.*"
+        }
+    },
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://www.paypal.me/idmarinas"
+        }
+    ]
 }
