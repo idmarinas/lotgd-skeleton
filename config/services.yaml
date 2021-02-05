@@ -25,6 +25,7 @@ services:
             - "../src/core/Fixed/"
             - "../src/core/Pattern/"
             - "../src/core/Tests/"
+            - "../src/core/Twig/Loader/LotgdFilesystemLoader.php"
             - "../src/core/Twig/Node/"
             - "../src/core/Twig/NodeVisitor/"
             - "../src/core/Twig/TokenParser/"
@@ -150,10 +151,6 @@ services:
     # LoTGD Settings
     Lotgd\Core\Lib\Settings:
         public: true
-        calls:
-            - setDoctrine: ['@doctrine.orm.entity_manager']
-            - setCache: ['@core.settings.cache']
-            - loadSettings: []
 
     # LoTGD PvP
     Lotgd\Core\Pvp\Listing:
@@ -195,15 +192,12 @@ services:
     Lotgd\Core\Symfony\Translation\Formatter\MessageFormatter:
         arguments:
             - '@identity_translator'
+    Symfony\Component\HttpFoundation\Response: # Temporal
+        alias: Lotgd\Core\Http\Response
+    Symfony\Component\HttpFoundation\Request: # Temporal
+        alias: Lotgd\Core\Http\Request
 
     # Twig extensions
     Marek\Twig\ByteUnitsExtension:
         tags:
             - { name: twig.extension }
-
-    # Template system
-    Lotgd\Core\Template\Template:
-        decorates: twig
-    Lotgd\Core\Twig\Loader\LotgdFilesystemLoader:
-        arguments:
-            - '@twig.loader.filesystem'

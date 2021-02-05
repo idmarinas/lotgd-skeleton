@@ -1,7 +1,7 @@
 {
     "name": "idmarinas-lotgd",
     "title": "The Legend of the Green Dragon",
-    "version": "5.0.0",
+    "version": "5.1.0",
     "description": "A new version of The Legend of the Green Dragon, upgrade scripts and optimization for PHP >= 7.2.",
     "time": "2017-04-21",
     "engines": {
@@ -43,7 +43,7 @@
         "@babel/core": "^7.12.10",
         "@babel/plugin-transform-runtime": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
-        "@symfony/stimulus-bridge": "^1.1.0",
+        "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.0.3",
         "ansi-colors": "^4.1.1",
         "autoprefixer": "^10.2.4",

@@ -7,6 +7,68 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V4.md)  
 
+# Version: 5.1.0
+
+### :cyclone: CHANGES
+
+-   **Moved** `templates/lotgd/` to `themes/LotgdTheme/templates/` folder
+-   **Moved** `templates_core/` to `themes/LotgdTheme/templates/admin/` folder
+
+### :star: FEATURES
+
+-   **New Theme System**
+    -   This version included new Theme System powered by [SyliusThemeBundle](https://github.com/Sylius/SyliusThemeBundle)
+    -   This new system allow to customize appearance of LoTGD more easy. This
+    -   And them can change the theme of LoTGD easy.
+        -   At the moment it does not allow the user to change the theme.
+    -   Theme structure in `themes/` folder. 
+        ```
+        AcmeTheme
+        ├── theme.json
+        ├── public
+        │   └── asset.jpg
+        ├── templates
+        │   ├── bundles
+        │   │   └── AcmeBundle
+        │   │       └── bundleTemplate.html.twig
+        |   └── template.html.twig
+        └── translations
+           └── messages.en.yml
+        ```
+    -   Olso include [Sonata Blocks](https://github.com/sonata-project/SonataBlockBundle)
+        -   Note: `sonata_block_render_event()` not working.
+
+### :fire: DEPRECATED
+
+-   Nothing
+
+### :wrench: FIXES
+
+-   Nothing
+
+### :x: REMOVES/Break Changes
+
+-   Removed `src/core/Template/Template.php` 
+-   Removed `src/core/Twig/Loader/LotgdFilesystemLoader.php`
+
+### :notebook: NOTES
+
+-   **Notes**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+-   **Upgrade/Install for version 4.9.0 and up**
+    -   First, upload files to your server (production compilation):
+    -   Second, empty cache:
+        -   `var/` delete this folder (or use command in console `php bin/console cache:clear`).
+            -   From version 4.9.0 use Symfony Kernel, so work like Symfony Framework.
+        -   `storage/cache/*` can empty with console comand `php bin/lotgd storage:cache_clear`
+            -   Not delete `.gitkeep` files. Remember to keep the main structure of the folder `storage/cache/`
+            -   It is highly recommended to use the command  `php bin/lotgd storage:cache_clear` instead delete folder.
+            -   Note: if fail when run console command, manual delete: `storage/cache/service-manager.config.php`
+    -   Third, read info in `storage/log/tracy/*` files, and see the problem.
+    -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
 # Version: 5.0.0
 
 ### :cyclone: CHANGES
@@ -38,7 +100,10 @@ Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 
 ### :wrench: FIXES
 
--   Nothing
+-   **lib/deathmessage.php** and **lib/taunt.php** fixed error with translation function (now pass empty array as param)
+-   **lib/battle/functions.php** fixed error with name of index of Overlord
+-   **public/graveyard.php** fixed error in format of arrays
+-   **templates/lotgd/pages/_macros/_battle.html.twig** fixed error with text domain
 
 ### :x: REMOVES/Break Changes
 
