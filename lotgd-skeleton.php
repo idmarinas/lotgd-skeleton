@@ -17,7 +17,6 @@ class Skeleton
 
         $fs->mirror('vendor/idmarinas/lotgd/lib/AdvertisingBundle', './lib/AdvertisingBundle');
         $fs->mirror('vendor/idmarinas/lotgd/src', './src');
-        $fs->mirror('vendor/idmarinas/lotgd/themes', './themes');
 
         echo "\n";
         echo 'Finish copy files';
