@@ -50,6 +50,7 @@ module.exports = function (callback)
                 normalize(config.paths.build.prod + '/config/development{,/**}'),
                 normalize(config.paths.build.prod + '/config/local/dbconnect.php'),
                 normalize(config.paths.build.prod + '/config{,/**}/development{,.*}.*'),
+                normalize('!' + config.paths.build.prod + '/lotgd-skeleton.php.php'), //-- Composer not end if not find this file to analyze
                 normalize('!' + config.paths.build.prod + '/lotgd-check-requeriments.php'), //-- Ignore file: check requeriments
                 normalize('!' + config.paths.build.prod + '/{composer,symfony}.{json,lock}'), //-- Can use in prod server to optimize-autoloader
                 normalize('!' + config.paths.build.prod + '/data/installer/README.md') //-- Not delete this file
