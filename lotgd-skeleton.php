@@ -49,20 +49,20 @@ class Skeleton
             $fs->mirror($dir, str_replace('vendor/idmarinas/lotgd', './_core_files/', $dir));
         }
 
-        $files = [
-            '.env',
-            '.gitignore',
-            'composer.json',
-            'composer.lock',
-            'lotgd-check-requeriments.php',
-            'README.md',
-            'symfony.lock',
-        ];
+        // $files = [
+        //     '.env',
+        //     '.gitignore',
+        //     'composer.json',
+        //     'composer.lock',
+        //     'lotgd-check-requeriments.php',
+        //     'README.md',
+        //     'symfony.lock',
+        // ];
 
-        foreach($files as $file)
-        {
-            $fs->copy('vendor/idmarinas/lotgd/'.$file, './_core_files/'.$file);
-        }
+        // foreach($files as $file)
+        // {
+        //     $fs->copy('vendor/idmarinas/lotgd/'.$file, './_core_files/'.$file);
+        // }
 
         echo "\n";
         echo 'Finish copy files';
