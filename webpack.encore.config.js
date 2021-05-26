@@ -1,14 +1,14 @@
 module.exports = function (Encore)
 {
-    //-- Reset config in each call
-    Encore.reset()
-
     // Manually configure the runtime environment if not already configured yet by the "encore" command.
     // It's useful when you use tools that rely on webpack.config.js file.
     if (!Encore.isRuntimeEnvironmentConfigured())
     {
         Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev')
     }
+
+    //-- Reset config in each call
+    Encore.reset()
 
     Encore
         //-- Configure how CSS/JS/Images/Fonts files are exported
@@ -27,8 +27,8 @@ module.exports = function (Encore)
 
         //-- Useful alias for some files
         .addAliases({
-            'sweetalert2.css$': 'sweetalert2/src/sweetalert2.scss',
-            'tagify.scss$': '@yaireo/tagify/src/tagify.scss'
+            'sweetalert2.css$': 'sweetalert2/dist/sweetalert2.min.css',
+            'tagify.scss$': '@yaireo/tagify/dist/tagify.css'
         })
 
         // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

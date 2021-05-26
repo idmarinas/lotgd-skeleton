@@ -1,5 +1,0 @@
-framework:
-    assets:
-        packages:
-            lotgd:
-                json_manifest_path: '%kernel.project_dir%/public/build/lotgd/manifest.json'

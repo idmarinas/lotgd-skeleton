@@ -29,7 +29,7 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-session": "*",
-        "idmarinas/lotgd": "5.1.*",
+        "idmarinas/lotgd": "5.2.*",
         "symfony/flex": "^1.3.1"
     },
     "require-dev": {
@@ -37,13 +37,13 @@
         "macfja/tracy-doctrine-sql": "dev-master",
         "milo/vendor-versions": "^1.1",
         "phan/phan": "^3.2",
-        "symfony/browser-kit": "5.2.*",
-        "symfony/css-selector": "5.2.*",
-        "symfony/debug-bundle": "5.2.*",
-        "symfony/maker-bundle": "^1.28",
-        "symfony/stopwatch": "5.2.*",
-        "symfony/var-dumper": "5.2.*",
-        "symfony/web-profiler-bundle": "5.2.*"
+        "symfony/browser-kit": "^4.4",
+        "symfony/css-selector": "^4.4",
+        "symfony/debug-bundle": "^4.4",
+        "symfony/maker-bundle": "^1.0",
+        "symfony/stopwatch": "^4.4",
+        "symfony/var-dumper": "^4.4",
+        "symfony/web-profiler-bundle": "^4.4"
     },
     "autoload": {
         "psr-4": {
@@ -52,8 +52,7 @@
             "Lotgd\\Ajax\\Core\\": "src/ajax/core/",
             "Lotgd\\Ajax\\Local\\": "src/ajax/local/",
             "Lotgd\\Ajax\\Pattern\\Core\\": "src/ajax/pattern/core/",
-            "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/",
-            "LotgdCore\\AdvertisingBundle\\": "lib/AdvertisingBundle/src/"
+            "Lotgd\\Ajax\\Pattern\\Local\\": "src/ajax/pattern/local/"
         },
         "classmap": ["lotgd-skeleton.php"],
         "exclude-from-classmap": [

@@ -31,7 +31,7 @@ This skeleton does not include the core files, they are not necessary for the cr
 
 ## IDMarinas Edition
 
-Skeleton version for IDMarinas Edition: **_5.1.*_**
+Skeleton version for IDMarinas Edition: **_5.2.*_**
 
 ## First steps
 

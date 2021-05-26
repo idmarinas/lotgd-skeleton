@@ -7,6 +7,87 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
 Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V4.md)  
 
+# Version: 5.2.0
+
+### :cyclone: CHANGES
+
+-   **Downgrade** Symfony components from 5.2 versions to 4.4 versions.
+-   **Fixed Classes** 
+    -   All fixed classes in `src/core/Fixed/` folder.
+    -   Instead use this clases `LotgdResponse`, `LotgdRequest`...
+    -   Try to use service injection when you can. All this clases is for transiction.
+
+### :star: FEATURES
+
+-   Nothing
+
+### :fire: DEPRECATED
+
+-   All pattern class in **src/core/Pattern/** folder are deprecated. If possible use Dependency Injection.
+    -   All these patterns will be removed in future version.
+
+### :wrench: FIXES
+
+-   Nothing
+
+### :x: REMOVES/Break Changes
+
+-   **BC** Delete `AdvertisingBundle` from Core. Now is a independent bundle (can use in other Symfony projects).
+    -   If you need/want use in your server can use https://github.com/idmarinas/advertising-bundle
+-   **BC** Removed Laminas Event Manager (Lotgd\Core\EventManager\EventManager), now use Symfony Event Dispatcher.
+    -   All events triggers are migrated to `evenDispacher->dispatch()`
+    -   You can see all available events in `src/core/Event/` folder
+    -   Also removed all related files to Hook manager like (`Lotgd\Core\Fixed\HookManager` as `LotgdHook`)
+        -   Use `LotgdEventDispatcher` instead of `LotgdHook`
+    -   Use Event Dispatcher service for all events. Can create new custom events.
+        -   Use `LotgdKernel::get('event_dispatcher')` for get service of Event Dispatcher.
+-   **BC** Deleted pattern `Lotgd\Core\Pattern\HookManager`
+-   **BC** Deleted events class `Lotgd\Core\Hook` See `src/core/Event/` folder to see all new events.
+-   **Installer delete this files/folders**:
+    -   `/bin/lotgd`
+    -   `/data/form/core/`
+    -   `/src/core/Battle/`
+    -   `/src/core/Component/`
+    -   `/src/core/Console/`
+    -   `/src/core/Factory/`
+    -   `/src/core/Filter/`
+    -   `/src/core/Db/`
+    -   `/src/core/Nav/`
+    -   `/src/core/Patern/`
+    -   `/src/core/Translator/`
+    -   `/src/core/Validator/`
+    -   `/src/core/Template/Base.php`
+    -   `/src/core/Template/Theme.php`
+    -   `/src/core/EventManagerAware.php`
+    -   `/src/core/Event.php`
+    -   `/src/core/Http.php`
+    -   `/src/core/Modules.php`
+    -   `/src/core/ServiceManager.php`
+    -   `/src/core/Session.php`
+    -   `/src/core/Fixed/Cache.php`
+    -   `/src/core/Fixed/Dbwrapper.php`
+    -   `/src/core/Fixed/EventManager.php`
+    -   `/src/core/Fixed/Format.php`
+    -   `/src/core/Fixed/Http.php`
+    -   `/src/core/Fixed/HookManager.php`
+    -   `/src/core/Fixed/Locator.php`
+    -   `/src/core/Fixed/SymfonyForm.php`
+    -   Note: all this files/folders are automatically deleted when upgrade to version 5.2.0, this files not are in used by the LoTGD Core.
+
+### :notebook: NOTES
+
+-   **Notes**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
 # Version: 5.1.0
 
 ### :cyclone: CHANGES
@@ -26,14 +107,14 @@ Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
         AcmeTheme
         ├── theme.json
         ├── public
-        │   └── asset.jpg
+        │   └── asset.jpg
         ├── templates
-        │   ├── bundles
-        │   │   └── AcmeBundle
-        │   │       └── bundleTemplate.html.twig
+        │   ├── bundles
+        │   │   └── AcmeBundle
+        │   │       └── bundleTemplate.html.twig
         |   └── template.html.twig
         └── translations
-           └── messages.en.yml
+           └── messages.en.yml
         ```
     -   Olso include [Sonata Blocks](https://github.com/sonata-project/SonataBlockBundle)
         -   Note: `sonata_block_render_event()` not working.
