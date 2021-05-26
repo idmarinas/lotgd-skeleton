@@ -72,7 +72,7 @@ Skeleton version for IDMarinas Edition: **_5.2.*_**
 
 -   Need download repository and copy files to your project directory. 
     -   Revise all changes and make changes as you need.
--   Run command `composer lotgd:skeleton:upgrade` and wait.
+-   Run command `composer lotgd:skeleton:project:upgrade` and wait.
 
 ### For project of version 5.2.* and higher.
 
@@ -82,7 +82,7 @@ Skeleton version for IDMarinas Edition: **_5.2.*_**
         -   Note: `X.Y.Z` `X` is a major version, `Y` is a minor version, `Z` is a patch version.
         -   Note: with `*` in patch version this download los patches of packages this is only a fixed errors, not break your installation.
 -   Wait to finish.
--   Run command `composer lotgd:skeleton:upgrade` and wait.
+-   Run command `composer lotgd:skeleton:project:upgrade` and wait.
 
 
 ## Prepare your custom LoTGD
