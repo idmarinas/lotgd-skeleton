@@ -57,7 +57,8 @@
         },
         "classmap": ["lotgd-skeleton.php"],
         "exclude-from-classmap": [
-            "vendor/idmarinas/lotgd/*"
+            "vendor/idmarinas/lotgd/*",
+            "vendor/idmarinas/lotgd-skeleton/*"
         ]
     },
     "scripts": {
