@@ -40,7 +40,10 @@ Skeleton version for IDMarinas Edition: **_5.2.*_**
     >   _Gulp_ globally, run command `npm install gulp-cli -g`
     >   _Composer_ globally see https://getcomposer.org/download/
 
+## Create project
+
 ### Method 1
+
 -   Run command `composer create-project idmarinas/lotgd-skeleton MyCustomLoTGD` to create a skeleton of LoTGD Core
     >   It will create a MyCustomLoTGD directory with a new LoTGD Core application inside.
 -   Run command `npm install` for install all nodes packages.
@@ -48,9 +51,10 @@ Skeleton version for IDMarinas Edition: **_5.2.*_**
     -   Not is necesary install in proyect folder.
 
 ### Method 2
+
 -   Clone repository in your directory.
 -   Run command `composer install` for install all composer packages.
--   Run command `composer lotgd:skeleton:prepare`
+-   Run command `composer lotgd:skeleton:project:create`
     -   This copy files to `_core_files/` folder for you.
     -   Olso copy files needed for commands in your `MyCustomLoTGD` directory.
 -   Run command `php bin/console lotgd:regenerate:app_secret` this regenerate APP_SECRET of `.env` file.
@@ -58,6 +62,28 @@ Skeleton version for IDMarinas Edition: **_5.2.*_**
 -   Run command `npm install` for install all nodes packages.
     -   Note: When Fomantic Ui asks you to install, select "Skip install" and then accept everything.
     -   Not is necesary install in proyect dir.
+
+## Upgrade project from previous version (New in version 5.2.* of Skeleton)
+
+-   Before make any change, commit all changes in your project. 
+    -   With this can see all new changes can modify as you need.
+
+### For project of version 5.1.* and lower.
+
+-   Need download repository and copy files to your project directory. 
+    -   Revise all changes and make changes as you need.
+-   Run command `composer lotgd:skeleton:upgrade` and wait.
+
+### For project of version 5.2.* and higher.
+
+-   In your composer.json search the following packages:
+    -   `"idmarinas/lotgd"` and `"idmarinas/lotgd-skeleton"` Upgrade the version of these packages to the desired version, e.g. `5.2.*`
+    -   Both packages must have the same major version and the same minor version, the patch version must always be an asterisk.
+        -   Note: `X.Y.Z` `X` is a major version, `Y` is a minor version, `Z` is a patch version.
+        -   Note: with `*` in patch version this download los patches of packages this is only a fixed errors, not break your installation.
+-   Wait to finish.
+-   Run command `composer lotgd:skeleton:upgrade` and wait.
+
 
 ## Prepare your custom LoTGD
 
