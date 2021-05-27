@@ -147,6 +147,17 @@ class Skeleton
             $fs->copy('vendor/idmarinas/lotgd-skeleton/'.$file, './'.$file);
         }
 
+        //-- Copy gulp folder
+        $finder = (new Finder())->ignoreUnreadableDirs()
+            ->directories()
+            ->in('vendor/idmarinas/lotgd-skeleton/gulp/')
+        ;
+
+        foreach ($finder as $dir)
+        {
+            $fs->mirror($dir, \str_replace('vendor/idmarinas/lotgd-skeleton/gulp', './gulp', $dir), null, ['delete' => true, 'override' => true]);
+        }
+
         echo "\n";
         echo 'Finish upgrading files';
     }
