@@ -71,7 +71,7 @@ class Skeleton
             ->directories()
             ->in('vendor/idmarinas/lotgd/assets/lotgd')
             ->exclude([
-                'semantic',
+                'css/semantic',
             ])
         ;
 
@@ -114,6 +114,9 @@ class Skeleton
         {
             $fs->copy($file, \str_replace('vendor/idmarinas/lotgd/config', './config', $file), true);
         }
+
+        echo "\n";
+        echo 'Finish coping files of LoTGD Core to "_core_files/" folder';
     }
 
     public static function upgrade()
