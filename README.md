@@ -79,8 +79,9 @@ Skeleton version for IDMarinas Edition: **_5.2.*_**
 -   In your composer.json search the following packages:
     -   `"idmarinas/lotgd"` and `"idmarinas/lotgd-skeleton"` Upgrade the version of these packages to the desired version, e.g. `5.2.*`
     -   Both packages must have the same major version and the same minor version, the patch version must always be an asterisk.
-        -   Note: `X.Y.Z` `X` is a major version, `Y` is a minor version, `Z` is a patch version.
+        -   Note: `X.Y.Z`: `X` is a major version, `Y` is a minor version, `Z` is a patch version.
         -   Note: with `*` in patch version this download los patches of packages this is only a fixed errors, not break your installation.
+-   Run command `composer update`
 -   Wait to finish.
 -   Run command `composer lotgd:skeleton:project:upgrade` and wait.
 
@@ -93,6 +94,8 @@ Skeleton version for IDMarinas Edition: **_5.2.*_**
         -   `.env.dev` contain data for development environment.
         -   `.env.test` contain data for test environment.
     -   Can read comments in `.env` for know how work `.env` files.
+-   Run command `php bin/console lotgd:regenerate:app_secret` this regenerate APP_SECRET of `.env` file.
+    -   :warning: Only need regenerate app secret first time install LoTGD. If you already have a project in production. Change other time this can break your installation.
 -   Now only need prepare all your customizations and modules
 
 ## Prepare for deployment
