@@ -2,10 +2,82 @@
 
 Visit the [Wiki](https://github.com/idmarinas/lotgd-game/wiki) for more details.  
 Visit the [Documentation](https://idmarinas.github.io/lotgd-game/) for more details.  
-Visit the [README](https://github.com/idmarinas/lotgd-game/blob/master/README.md).   
-Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V2.md)  
-Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V3.md)  
-Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/CHANGELOG-V4.md)  
+Visit the [README](https://github.com/idmarinas/lotgd-game/blob/migration/README.md).   
+Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V2.md)  
+Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V3.md)  
+Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V4.md)  
+
+# Version: 5.3.0
+
+### :cyclone: CHANGES
+
+-   This pages use a controller to render content of page
+    -   `public/about.php` use controller `Lotgd\Core\Controller\AboutController`
+    -   `public/home.php` use controller `Lotgd\Core\Controller\HomeController`
+    -   `public/list.php` use controller `Lotgd\Core\Controller\ListController`
+    -   Note: See this files for an examples of how to use the controllers in LoTGD Core.
+-   **Translations**
+    -   `translations/en/navigation_stables+intl-icu.en.yaml` Add new translations
+
+### :star: FEATURES
+
+-   **Add** new events to Event Dispatcher.
+    -   See class `Lotgd\Core\Events` and `src/core/Event/` folder for all events.
+-   **Controllers** First approach to controllers in LoTGD Core
+    -   `public/home.php` Have the first controller of LoTGD Core
+        -   Can see this example for use in your modules. Is a good step to full migrate modules to bundles.
+
+### :fire: DEPRECATED
+
+-   **lib/gamelog.php** Function `gamelog` is deprecated and removed in future versions.
+    -   Use `LotgdLog::game(string $message, string $category)` instead or use a dependency injection.
+-   **lib/debuglog.php** Function `debuglog` is deprecated and removed in future versions.
+    -   Use `LotgdLog::debug(string $message, ?int $target = null, ?int $user = null, ?string $field = null, ?int $value = null, bool $consolidate = true)` instead or use a dependency injection.
+-   **lib/addnews.php** Function `addnews` is deprecated and removed in future versions.
+    -   Use `LotgdTool::addNews(string $text, array $params, string $textDomain, bool $hideFromBio);` instead or use a dependency injection.
+-   **lib/experience.php** Function `exp_for_next_level` is deprecated and removed in future versions.
+    -   Use `LotgdTool::expForNextLevel($curlevel, $curdk);` instead or use a dependency injection.
+-   **lib/lotgd_mail.php** Function `lotgd_mail` is deprecated and removed in future versions.
+    -   Use `Symfony mailer` instead.
+-   **lib/checkban.php** Function `checkban` is deprecated and removed in future versions.
+    -   Use `LotgdLog::checkBan(?string $login)` instead or use a dependency injection.
+-   **lib/charcleanup.php** Function `char_cleanup` is deprecated and removed in future versions.
+    -   Functions `createBackupOfEntity` and `createBackupBasicInfo` are used by `char_cleanup` and removed from file.
+    -   Use `LotgdKernel::get(\Lotgd\Core\Tool\Backup::class)->characterCleanUp($accountId, $type)` instead or use a dependency injection.
+        -   `LotgdKernel::get('lotgd.core.backup')->characterCleanUp($accountId, $type)`.
+    
+### :wrench: FIXES
+
+-   **public/stables.php** Now translate navs for examine mount
+
+### :x: REMOVES
+
+-   **Remove** file `error_docs/dberror.html` not in use.
+-   **BC** `public/battle.php` 
+    -   Removed the following `modulehooks`
+        -   `battle-victory`
+        -   `battle-defeat`
+    -   Note: this hooks is individual for each creature, better use:
+        - Event Dispatcher: 
+            -   `Lotgd\Core\Events::PAGE_BATTLE_END_VICTORY`
+            -   `Lotgd\Core\Events::PAGE_BATTLE_END_DEFEAT`
+        -   Module hook: (this method is deprecated use Event Dispatcher instead)
+            -   `battle-victory-end`
+            -   `battle-defeat-end`
+
+### :notebook: NOTES
+
+-   **Notes**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
 
 # Version: 5.2.0
 
@@ -30,7 +102,7 @@ Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 
 -   Nothing
 
-### :x: REMOVES/Break Changes
+### :x: REMOVES
 
 -   **BC** Delete `AdvertisingBundle` from Core. Now is a independent bundle (can use in other Symfony projects).
     -   If you need/want use in your server can use https://github.com/idmarinas/advertising-bundle
@@ -127,7 +199,7 @@ Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 
 -   Nothing
 
-### :x: REMOVES/Break Changes
+### :x: REMOVES
 
 -   Removed `src/core/Template/Template.php` 
 -   Removed `src/core/Twig/Loader/LotgdFilesystemLoader.php`
@@ -186,7 +258,7 @@ Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/master/C
 -   **public/graveyard.php** fixed error in format of arrays
 -   **templates/lotgd/pages/_macros/_battle.html.twig** fixed error with text domain
 
-### :x: REMOVES/Break Changes
+### :x: REMOVES
 
 -   **BC** remove LoTGD console `bin/lotgd` use `bin/console`
     -   Removed command `src/core/Command/StorageCacheClearCommand.php` 

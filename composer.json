@@ -29,11 +29,11 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-session": "*",
-        "idmarinas/lotgd": "5.2.*",
+        "idmarinas/lotgd": "5.3.*",
         "symfony/flex": "^1.3.1"
     },
     "require-dev": {
-        "idmarinas/lotgd-skeleton": "5.2.*",
+        "idmarinas/lotgd-skeleton": "5.3.*",
         "idmarinas/tracy-twig-bar": "^0.1",
         "macfja/tracy-doctrine-sql": "dev-master",
         "milo/vendor-versions": "^1.1",
