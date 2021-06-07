@@ -158,6 +158,18 @@ class Skeleton
             $fs->mirror($dir, \str_replace('vendor/idmarinas/lotgd-skeleton/gulp', './gulp', $dir), null, ['delete' => true, 'override' => true]);
         }
 
+        //-- Update translations
+        $finder = (new Finder())->ignoreUnreadableDirs()
+            ->directories()
+            ->in('vendor/idmarinas/lotgd/translations/en/')
+        ;
+
+        //-- Need add translations for modules other time
+        foreach ($finder as $dir)
+        {
+            $fs->mirror($dir, \str_replace('vendor/idmarinas/lotgd/translations/en', './translations/en', $dir), null, ['delete' => true, 'override' => true]);
+        }
+
         echo "\n";
         echo 'Finish upgrading files';
     }
