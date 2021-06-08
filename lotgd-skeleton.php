@@ -159,16 +159,8 @@ class Skeleton
         }
 
         //-- Update translations
-        $finder = (new Finder())->ignoreUnreadableDirs()
-            ->directories()
-            ->in('vendor/idmarinas/lotgd/translations/en/')
-        ;
-
         //-- Need add translations for modules other time
-        foreach ($finder as $dir)
-        {
-            $fs->mirror($dir, \str_replace('vendor/idmarinas/lotgd/translations/en', './translations/en', $dir), null, ['delete' => true, 'override' => true]);
-        }
+        $fs->mirror('vendor/idmarinas/lotgd/translations/en', './translations/en', null, ['delete' => true, 'override' => true]);
 
         echo "\n";
         echo 'Finish upgrading files';
