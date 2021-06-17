@@ -7,6 +7,91 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migratio
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V3.md)  
 Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V4.md)  
 
+# Version: 5.4.0
+
+### :cyclone: CHANGES
+
+-   This pages use a controller to render content of page
+    -   `public/account.php` use controller `Lotgd\Core\Controller\AccountController`
+    -   `public/armor.php` use controller `Lotgd\Core\Controller\ArmorController`
+    -   `public/bank.php` use controller `Lotgd\Core\Controller\BankController`
+    -   `public/clan.php` use controller `Lotgd\Core\Controller\ClanController`
+    -   `public/create.php` use controller `Lotgd\Core\Controller\CreateController`
+    -   `public/gardens.php` use controller `Lotgd\Core\Controller\GardenController`
+    -   `public/gypsy.php` use controller `Lotgd\Core\Controller\GypsyController`
+    -   `public/healer.php` use controller `Lotgd\Core\Controller\HealerController`
+    -   `public/hof.php` use controller `Lotgd\Core\Controller\HofController`
+    -   `public/inn.php` use controller `Lotgd\Core\Controller\InnController`
+    -   `public/lodge.php` use controller `Lotgd\Core\Controller\LodgeController`
+    -   `public/mercenarycamp.php` use controller `Lotgd\Core\Controller\MercenaryCampController`
+    -   `public/news.php` use controller `Lotgd\Core\Controller\NewsController`
+    -   `public/referral.php` use controller `Lotgd\Core\Controller\ReferralController`
+    -   `public/rock.php` use controller `Lotgd\Core\Controller\RockController`
+    -   `public/shades.php` use controller `Lotgd\Core\Controller\ShadesController`
+    -   `public/stables.php` use controller `Lotgd\Core\Controller\StableController`
+    -   `public/village.php` use controller `Lotgd\Core\Controller\VillageController`
+    -   `public/weapons.php` use controller `Lotgd\Core\Controller\WeaponController`
+    -   Note: See this files for an examples of how to use the controllers in LoTGD Core.
+-   **Twig Extensions**
+    -   `GameCore` Settings and Censor functions are moved to new extensions.
+        -   `CensorExtension`
+        -   `SettingsExtension`
+
+
+### :star: FEATURES
+
+-   **Test** add a basic test, limited to any functions of Twig Extensions
+
+### :fire: DEPRECATED
+
+-   **lib/saveuser.php** Function `saveuser` is deprecated and removed in future versions.
+    -   Use `LotgdLog::saveUser($update_last_on)` instead or use a dependency injection.
+-   **lib/deathmessage.php** Function `select_deathmessage` is deprecated and removed in future versions.
+    -   Use `LotgdLog::selectDeathMessage($zone, $extraParams)` instead or use a dependency injection.
+-   **lib/taunt.php** Function `select_taunt` is deprecated and removed in future versions.
+    -   Use `\LotgdTool::selectTaunt($extraParams)` instead or use a dependency injection.
+-   **lib/substitute.php** 
+    -   Function `substitute` is deprecated and removed in future versions.
+        -   Use `\LotgdTool::substitute($string, $extra, $extrarep)` instead or use a dependency injection.
+    -   Function `substitute_array` is deprecated and removed in future versions.
+        -   Use `\LotgdTool::substituteArray($string, $extra, $extrarep)` instead or use a dependency injection.
+
+### :wrench: FIXES
+
+-   Nothing
+
+### :x: REMOVES
+
+-   **Deleted some old files** this files is related to version 1.1.2 or older.
+    -   `README.txt`
+    -   `AFTERUPGRADE.txt`
+    -   `BUG FIXES.txt`
+-   **Deleted** all files in folder `lib/clan/`:
+    -   `applicant_apply.php` 
+    -   `applicant_new.php` 
+    -   `applicant.php` 
+    -   `clan_default.php` 
+    -   `clan_membership.php` 
+    -   `clan_motd.php` 
+    -   `clan_withdraw.php` 
+    -   `detail.php` 
+    -   `list.php` 
+-   **Deleted** file `lib/inn/inn_bartender.php`
+
+### :notebook: NOTES
+
+-   **Notes**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
 # Version: 5.3.0
 
 ### :cyclone: CHANGES
