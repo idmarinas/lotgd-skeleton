@@ -138,6 +138,11 @@ class Skeleton
         }
 
         $files = [
+            'CHANGELOG-V2.md',
+            'CHANGELOG-V3.md',
+            'CHANGELOG-V4.md',
+            'CHANGELOG.md',
+            'README.md',
             'composer.json',
             'lotgd-skeleton.php',
         ];
