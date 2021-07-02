@@ -133,11 +133,8 @@
     "gedmo/doctrine-extensions": {
         "version": "v3.0.5"
     },
-    "idmarinas/lotgd": {
-        "version": "5.4.1"
-    },
-    "idmarinas/lotgd-skeleton": {
-        "version": "5.4.1"
+    "idmarinas/lotgd-contracts": {
+        "version": "0.2.0"
     },
     "idmarinas/tracy-twig-bar": {
         "version": "0.1.2"
