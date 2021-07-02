@@ -56,7 +56,6 @@ class Skeleton
         $files = [
             '.env',
             'composer.json',
-            'composer.lock',
             'lotgd-check-requeriments.php',
             'symfony.lock',
         ];
@@ -71,7 +70,7 @@ class Skeleton
             ->directories()
             ->in('vendor/idmarinas/lotgd/assets/lotgd')
             ->exclude([
-                'css/semantic',
+                'css/semantic/',
             ])
         ;
 
@@ -129,6 +128,11 @@ class Skeleton
 
         $files = [
             'package.json',
+            'CHANGELOG-V2.md',
+            'CHANGELOG-V3.md',
+            'CHANGELOG-V4.md',
+            'CHANGELOG.md',
+            'README.md',
             'lotgd-check-requeriments.php',
         ];
 
@@ -138,11 +142,6 @@ class Skeleton
         }
 
         $files = [
-            'CHANGELOG-V2.md',
-            'CHANGELOG-V3.md',
-            'CHANGELOG-V4.md',
-            'CHANGELOG.md',
-            'README.md',
             'composer.json',
             'lotgd-skeleton.php',
         ];
