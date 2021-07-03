@@ -26,6 +26,13 @@ const config = {
             //-- Include .files
             '{/**/.gitkeep,/.env,/.htaccess}',
             '!_core_files{,/**}', //-- Moved here for ignore .gitkeep files in this folder
+            //-- Ignore content for custom versions
+            '!data/installer{,/**}',
+            'data/installer/README.md', //-- But include README.md
+            //-- Ignore files of core
+            '!src/core{,/**}',
+            '!src/ajax/core{,/**}',
+            '!src/ajax/pattern/core{,/**}',
             //-- Ignore all dist folders/files
             '!{*.,}dist{,/**}',
             //-- Ignore dependency directories
