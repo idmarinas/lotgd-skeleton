@@ -1,11 +1,200 @@
+# History of changes for IDMarinas Edition
+
+This is a list of changes made in versions __5.*.*__
+
+
 # Changes of LoTGD IDMarinas Edition
 
 Visit the [Wiki](https://github.com/idmarinas/lotgd-game/wiki) for more details.  
 Visit the [Documentation](https://idmarinas.github.io/lotgd-game/) for more details.  
 Visit the [README](https://github.com/idmarinas/lotgd-game/blob/migration/README.md).   
+Visit **_DEV_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-dev.md)  
 Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V2.md)  
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V3.md)  
 Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V4.md)  
+Visit **_V6_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V6.md)  
+
+# Version: 5.5.4 
+
+### :cyclone: CHANGES
+
+-   Nothing
+
+### :star: FEATURES
+
+-   Nothing
+
+### :fire: DEPRECATED
+
+-   Nothing
+
+### :wrench: FIXES
+
+-   **lib/pvpsupport.php** 
+    -   Function: `setup_pvp_target`
+        -   Fix error with translation key (now use correct)
+        -   Not need extractEntity is an array
+        -   Fix error with compare to dates
+    -   Function: `pvpvictory` and `pvpdefeat`
+        -   Fixed error with translation keys
+    -   Function: `pvpvictory`
+        -   Now select correct max experience to lost
+-   **src/core/Repository/CharactersRepository.php** Function `getCharacterForPvp` Fix error, now add `character_id` to array
+-   **public/train.php** Fixed error by not allowed multiple challange to master when allow by config.
+-   **public/referers.php** Delete `require_once 'lib/dhms.php';` file not exists.
+-   **public/debug.php** Delete `require_once 'lib/dhms.php';` file not exists.
+-   **public/healer.php** Fix error, now pass var `params` to controller.
+-   **src/core/Controller/HealerController.php** Use correct format for access value of index of array
+-   **translations/en/partial_taunt+intl-icu.en.yaml** Fix error with var names
+
+### :x: REMOVES
+
+-   Nothing
+
+### :notebook: NOTES
+
+-   **Important**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+    -   :warning: Avoid, as far as possible, using static classes (e.g. LotgdSetting, Doctrine, LotgdTranslation...) as these classes will be deleted in a future version. Use autowire, dependency injection when possible.
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
+# Version: 5.5.3 
+
+### :cyclone: CHANGES
+
+-   Nothing
+
+### :star: FEATURES
+
+-   Nothing
+
+### :fire: DEPRECATED
+
+-   Nothing
+
+### :wrench: FIXES
+
+-   **public/forest.php** Fix error by show normal navs when see Dragon
+-   **translations/en/navigation_newday+intl-icu.yaml** and **translations/en/page_newday+intl-icu.yaml** Add translation for ff type key
+
+### :x: REMOVES
+
+-   Nothing
+
+### :notebook: NOTES
+
+-   **Important**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+    -   :warning: Avoid, as far as possible, using static classes (e.g. LotgdSetting, Doctrine, LotgdTranslation...) as these classes will be deleted in a future version. Use autowire, dependency injection when possible.
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
+# Version: 5.5.2 
+
+### :cyclone: CHANGES
+
+-   Nothing
+
+### :star: FEATURES
+
+-   Nothing
+
+### :fire: DEPRECATED
+
+-   Nothing
+
+### :wrench: FIXES
+
+-   **src/core/Controller/HofController.php** Fixed: now use method and not global function.
+-   Fixed error in some configuration pages:
+    -   Related to try duplicate user
+    -   Change `\Doctrine::clear();` to `\Doctrine::detach($entity);`
+    -   **Files affected**
+        -   `lib/configuration/cronjob.php `
+        -   `public/armoreditor.php`
+        -   `public/companions.php`
+        -   `public/creatures.php`
+        -   `public/masters.php`
+        -   `public/mounts.php`
+        -   `public/titleedit.php`
+        -   `public/user.php`
+        -   `public/weaponeditor.php`
+
+### :x: REMOVES
+
+-   Nothing
+
+### :notebook: NOTES
+
+-   **Important**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+    -   :warning: Avoid, as far as possible, using static classes (e.g. LotgdSetting, Doctrine, LotgdTranslation...) as these classes will be deleted in a future version. Use autowire, dependency injection when possible.
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
+# Version: 5.5.1 
+
+### :cyclone: CHANGES
+
+-   Nothing
+
+### :star: FEATURES
+
+-   Nothing
+
+### :fire: DEPRECATED
+
+-   Nothing
+
+### :wrench: FIXES
+
+-   **lib/modules/injectmodule.php** Fixed: return false when not have the name of module.
+-   **src/core/Controller/MercenaryCampController.php** Fixed: method `buy` now get `$session` global var.
+-   **src/core/Command/LotgdIntallCommand.php** and **src/core/Command/UserCreateCommand.php** Replace unexist method in class `Symfony\Component\Console\Style\SymfonyStyle` 
+-   **src/core/Command/UserCreateCommand.php** Fixed error with constraints
+-   **themes/LotgdTheme/templates/admin/page/about/_partial.html.twig** Fix error with url of download a bundle. Remove escape filter of url.
+-   **public/about.php** Fix error in secuence of if
+
+### :x: REMOVES
+
+-   Nothing
+
+### :notebook: NOTES
+
+-   **Important**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+    -   :warning: Avoid, as far as possible, using static classes (e.g. LotgdSetting, Doctrine, LotgdTranslation...) as these classes will be deleted in a future version. Use autowire, dependency injection when possible.
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
 
 # Version: 5.5.0 
 
@@ -78,13 +267,13 @@ Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migratio
         -   `apply_bodyguard` use `LotgdKernel::get('lotgd_core.combat.battle')->applyBodyguard($level)` instead
         -   `apply_skill` use `LotgdKernel::get('lotgd_core.combat.battle')->applySkill($skill, $l)` instead
 -   **lib/buffs.php** All functions (removed in future version)
-    -   `calculate_buff_fields` use `LotgdKernel::get('lotgd_core.combat.buffs')->calculateBuffFields()` instead
-    -   `restore_buff_fields` use `LotgdKernel::get('lotgd_core.combat.buffs')->restoreBuffFields()` instead
-    -   `apply_buff` use `LotgdKernel::get('lotgd_core.combat.buffs')->applyBuff($name, $buff)` instead
-    -   `apply_companion` use `LotgdKernel::get('lotgd_core.combat.buffs')->applyCompanion($name, $companion, $ignorelimit)` instead
-    -   `strip_buff` use `LotgdKernel::get('lotgd_core.combat.buffs')->stripBuff($name)` instead
-    -   `strip_all_buffs` use `LotgdKernel::get('lotgd_core.combat.buffs')->stripAllBuffs()` instead
-    -   `has_buff` use `LotgdKernel::get('lotgd_core.combat.buffs')->hasBuff($name)` instead
+    -   `calculate_buff_fields` use `LotgdKernel::get('lotgd_core.combat.buffer')->calculateBuffFields()` instead
+    -   `restore_buff_fields` use `LotgdKernel::get('lotgd_core.combat.buffer')->restoreBuffFields()` instead
+    -   `apply_buff` use `LotgdKernel::get('lotgd_core.combat.buffer')->applyBuff($name, $buff)` instead
+    -   `apply_companion` use `LotgdKernel::get('lotgd_core.combat.buffer')->applyCompanion($name, $companion, $ignorelimit)` instead
+    -   `strip_buff` use `LotgdKernel::get('lotgd_core.combat.buffer')->stripBuff($name)` instead
+    -   `strip_all_buffs` use `LotgdKernel::get('lotgd_core.combat.buffer')->stripAllBuffs()` instead
+    -   `has_buff` use `LotgdKernel::get('lotgd_core.combat.buffer')->hasBuff($name)` instead
 -   **lib/tempstat.php** All functions (removed in future version)
     -   `apply_temp_stat` use `LotgdKernel::get('lotgd_core.combat.temp_stats')->applyTempStat($name, $value, $type)` instead
     -   `check_temp_stat` use `LotgdKernel::get('lotgd_core.combat.temp_stats')->checkTempStat($name, $color)` instead
