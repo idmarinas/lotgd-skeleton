@@ -59,6 +59,8 @@ Skeleton version for IDMarinas Edition: **_6.0.*_**
     -   Olso copy files needed for commands in your `MyCustomLoTGD` directory.
 -   Run command `php bin/console lotgd:regenerate:app_secret` this regenerate APP_SECRET of `.env` file.
     - Only need run one time.
+-   Run command `php bin/console lotgd:regenerate:app_secret --iv` this regenerate APP_SECRET_IV of `.env` file.
+    - Only need run one time.
 -   Run command `npm install` for install all nodes packages.
     -   Note: When Fomantic Ui asks you to install, select "Skip install" and then accept everything.
     -   Not is necesary install in proyect dir.
