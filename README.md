@@ -97,7 +97,9 @@ Skeleton version for IDMarinas Edition: **_6.0.*_**
         -   `.env.test` contain data for test environment.
     -   Can read comments in `.env` for know how work `.env` files.
 -   Run command `php bin/console lotgd:regenerate:app_secret` this regenerate APP_SECRET of `.env` file.
-    -   :warning: Only need regenerate app secret first time install LoTGD. If you already have a project in production. Change other time this can break your installation.
+    -   :warning: Only need first time install LoTGD. If you already have a project in production, changing it again may break your installation.
+-   Run command `php bin/console lotgd:regenerate:app_secret -iv` this regenerate APP_SECRET_IV of `.env` file.
+    -   :warning: Only need first time install LoTGD. If you already have a project in production, changing it again will cause all previously encrypted data to become unencryptable.
 -   Now only need prepare all your customizations and modules
 
 ## Prepare for deployment
