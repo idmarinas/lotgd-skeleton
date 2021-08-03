@@ -126,29 +126,31 @@ class Skeleton
 
         $fs = new FileSystem();
 
-        $files = [
-            'package.json',
-            'CHANGELOG-V2.md',
-            'CHANGELOG-V3.md',
-            'CHANGELOG-V4.md',
-            'CHANGELOG.md',
-            'README.md',
-            'lotgd-check-requeriments.php',
-        ];
+        $files = (new Finder())->ignoreUnreadableDirs()
+            ->in('vendor/idmarinas/lotgd')
+            ->files()
+            ->name('package.json')
+            ->name('CHANGELOG-*.md')
+            ->name('README.md')
+            ->name('lotgd-check-requeriments.php')
+            ->notName('CHANGELOG-dev.md')
+        ;
 
         foreach ($files as $file)
         {
-            $fs->copy('vendor/idmarinas/lotgd/'.$file, './'.$file);
+            $fs->copy($file, \str_replace('vendor/idmarinas/lotgd', './', $file));
         }
 
-        $files = [
-            'composer.json',
-            'lotgd-skeleton.php',
-        ];
+        $files = (new Finder())->ignoreUnreadableDirs()
+            ->in('vendor/idmarinas/lotgd-skeleton')
+            ->files()
+            ->name('composer.json')
+            ->name('lotgd-skeleton.php')
+        ;
 
         foreach ($files as $file)
         {
-            $fs->copy('vendor/idmarinas/lotgd-skeleton/'.$file, './'.$file);
+            $fs->copy($file, \str_replace('vendor/idmarinas/lotgd-skeleton', './', $file));
         }
 
         //-- Copy gulp folder
