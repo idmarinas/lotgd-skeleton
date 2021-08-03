@@ -131,7 +131,6 @@ class Skeleton
             ->files()
             ->name('package.json')
             ->name('CHANGELOG-*.md')
-            ->name('README.md')
             ->name('lotgd-check-requeriments.php')
             ->notName('CHANGELOG-dev.md')
         ;
@@ -145,6 +144,7 @@ class Skeleton
             ->in('vendor/idmarinas/lotgd-skeleton')
             ->files()
             ->name('composer.json')
+            ->name('README.md')
             ->name('lotgd-skeleton.php')
         ;
 
