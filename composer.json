@@ -32,8 +32,8 @@
         "symfony/flex": "^1.3.1"
     },
     "require-dev": {
-        "idmarinas/lotgd": "6.0.*",
-        "idmarinas/lotgd-skeleton": "6.0.*",
+        "idmarinas/lotgd": "6.1.*",
+        "idmarinas/lotgd-skeleton": "6.1.*",
         "idmarinas/tracy-twig-bar": "^0.2",
         "macfja/tracy-doctrine-sql": "dev-master",
         "milo/vendor-versions": "^1.1",
