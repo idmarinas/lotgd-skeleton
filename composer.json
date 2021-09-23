@@ -1,6 +1,7 @@
 {
     "name": "idmarinas/lotgd-skeleton",
     "description": "A new version of The Legend of the Green Dragon, upgrade scripts and optimization , migrating to a Symfony Application",
+    "version": "6.2.0",
     "config": {
         "optimize-autoloader": true,
         "preferred-install": {
@@ -32,8 +33,8 @@
         "symfony/flex": "^1.3.1"
     },
     "require-dev": {
-        "idmarinas/lotgd": "6.1.*",
-        "idmarinas/lotgd-skeleton": "6.1.*",
+        "idmarinas/lotgd": "6.2.*",
+        "idmarinas/lotgd-skeleton": "6.2.*",
         "idmarinas/tracy-twig-bar": "^0.2",
         "macfja/tracy-doctrine-sql": "dev-master",
         "milo/vendor-versions": "^1.1",

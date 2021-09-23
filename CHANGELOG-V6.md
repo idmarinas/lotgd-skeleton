@@ -13,6 +13,56 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migratio
 Visit **_V3_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V3.md)  
 Visit **_V5_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V5.md)  
 
+# Version: 6.1.1 
+
+### :cyclone: CHANGES
+
+-   Nothing
+
+### :star: FEATURES
+
+-   Nothing
+
+### :fire: DEPRECATED
+
+-   Nothing
+
+### :wrench: FIXES
+
+-   **Include fixes of version 5.5.9**
+-   **src/core/Combat/Battle/Buff.php** 
+    -   Fix error, method `->addContextToRoundEnemy()` need only 1 param
+    -   Fix error with method `->substitute()` now pass correct params
+-   **src/core/Combat/Battle/Movement.php** Fix error, method `->addContextToRoundEnemy()` need only 1 param
+-   **src/core/Combat/Battle/Process.php** Fix error, method `->addContextToRoundEnemy()` need only 1 param
+-   **public/shades.php** Fix error, now use correct controller
+-   **src/core/Controller/NewDayController.php** and **src/core/Controller/NewDayController/DragonPointSpendTrait.php**: Fix error, now invoke spend points when have more than 1 point to spend.
+-   **themes/LotgdTheme/templates/page/_blocks/_newday.html.twig**
+    -   Add class format to inputs.
+    -   Fix error, now show correct translate text
+    -   Fix error with colspan
+    -   Now show points left
+    -   Apply min and max values in input
+
+### :x: REMOVES
+
+-   Nothing
+
+### :notebook: NOTES
+
+-   **Important**:
+    -   :warning: Since version 5.0.0 Installer is only via terminal (command: `php bin/console lotgd:install`)
+    -   :warning: Avoid, as far as possible, using static classes (e.g. LotgdSetting, Doctrine, LotgdTranslation...) as these classes will be deleted in a future version. Use autowire, dependency injection when possible.
+-   **Upgrade/Install for version 5.0.0 and up**
+    -   First read [docs](https://github.com/idmarinas/lotgd-game/wiki/Skeleton) and follow steps.
+    -   If have problems:
+        -   Read info in `storage/log/tracy/*` files, and see the problem.
+        -   Read info in `var/log/*` files, and see the problem.
+        -   Read info in `var/log/apache2/error.log` (this is the default location in Debian, can change in your OS distribution) in your webserver.
+        -   If you can't solve the problem go to: [Repository issues](https://github.com/idmarinas/lotgd-game/issues)
+-   **composer.json** Updated/Added/Deleted dependencies
+-   **package.json** Updated/Added/Deleted dependencies
+
 # Version: 6.1.0
 
 ### :cyclone: CHANGES
