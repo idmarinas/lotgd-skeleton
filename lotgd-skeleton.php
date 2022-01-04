@@ -68,27 +68,24 @@ class Skeleton
         //-- Copy Assets folders
         $finder = (new Finder())->ignoreUnreadableDirs()
             ->directories()
-            ->in('vendor/idmarinas/lotgd/assets/lotgd')
-            ->exclude([
-                'css/semantic/',
-            ])
+            ->in('vendor/idmarinas/lotgd/assets')
         ;
 
         foreach ($finder as $dir)
         {
-            $fs->mirror($dir, \str_replace('vendor/idmarinas/lotgd/assets/lotgd', './assets/lotgd', $dir), null, ['delete' => true, 'override' => true]);
+            $fs->mirror($dir, \str_replace('vendor/idmarinas/lotgd/assets', './assets', $dir), null, ['delete' => true, 'override' => true]);
         }
 
         //-- Copy Assets files
         $finder = (new Finder())->ignoreUnreadableDirs()
-            ->in('vendor/idmarinas/lotgd/assets/lotgd/')
+            ->in('vendor/idmarinas/lotgd/assets/')
             ->depth('== 0')
             ->files()
         ;
 
         foreach ($finder as $file)
         {
-            $fs->copy($file, \str_replace('vendor/idmarinas/lotgd/assets/lotgd', './assets/lotgd', $file), true);
+            $fs->copy($file, \str_replace('vendor/idmarinas/lotgd/assets', './assets', $file), true);
         }
 
         //-- Copy config folder
