@@ -225,12 +225,12 @@ $RECYCLE.BIN/
 # Other files/folders
 cli-config.php
 phan.csv
-/public/build/
 /public/_themes/
 
 # Ignore all files/folders that end in .dist
 *.dist
 !phpunit.xml.dist
+/build/
 
 ###< lotgd/core ###
 
@@ -240,6 +240,7 @@ phan.csv
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
+/public/build/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###

@@ -66,12 +66,12 @@
         "version": "v0.5.3"
     },
     "doctrine/doctrine-bundle": {
-        "version": "2.4",
+        "version": "2.5",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "2.4",
-            "ref": "bac5c852ff628886de2753215fe5eb1f9ce980fb"
+            "ref": "032f52ed50a27762b78ca6a2aaf432958c473553"
         },
         "files": [
             "./config/packages/doctrine.yaml",
@@ -757,12 +757,12 @@
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.9",
+        "version": "1.13",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "1.9",
-            "ref": "0f274572ea315eb3b5884518a50ca43f211b4534"
+            "ref": "10e67e9dc87263a25007130ee59975a36ea624fe"
         },
         "files": [
             "./assets/app.js",
@@ -789,6 +789,9 @@
     },
     "twig/extra-bundle": {
         "version": "v2.14.5"
+    },
+    "twig/intl-extra": {
+        "version": "v3.3.4"
     },
     "twig/twig": {
         "version": "v2.14.6"

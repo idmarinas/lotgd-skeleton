@@ -1,6 +1,6 @@
 # History of changes for IDMarinas Edition
 
-This is a list of changes made in versions __3.*.*__
+This is a list of changes made in versions __3.Y.Z__
 
 
 ## Changes made for IDMarinas Edition
@@ -15,6 +15,7 @@ Visit **_V2_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migratio
 Visit **_V4_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V4.md)  
 Visit **_V5_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V5.md)  
 Visit **_V6_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V6.md)  
+Visit **_V7_** [Changelog](https://github.com/idmarinas/lotgd-game/blob/migration/CHANGELOG-V7.md)  
 
 
 # Version: 3.0.0
