@@ -1,23 +1,23 @@
 {
     "name": "idmarinas/lotgd-skeleton",
-    "description": "A new version of The Legend of the Green Dragon, upgrade scripts and optimization , migrating to a Symfony Application",
-    "version": "7.0.0",
+    "description": "A new version of The Legend of the Green Dragon, upgrade scripts and optimization, migrating to a Symfony Application",
     "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "symfony/flex": true
+        },
         "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
         },
         "process-timeout": 5000,
-        "sort-packages": true,
-        "platform": {
-            "php": "7.3.0"
-        }
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "CC-BY-NC-SA-2.0",
     "require": {
-        "php": "^7.3 | ^8.0",
+        "php": "^7.3 | ^7.4",
         "ext-bcmath": "*",
         "ext-ctype": "*",
         "ext-curl": "*",
@@ -35,12 +35,13 @@
     },
     "require-dev": {
         "idmarinas/lotgd-skeleton": "7.0.*",
-        "idmarinas/tracy-twig-bar": "^0.2",
+        "idmarinas/maker-bundle": "^1.0",
+        "idmarinas/tracy-twig-bar": "^0.3",
         "macfja/tracy-doctrine-sql": "dev-master",
         "milo/vendor-versions": "^1.1",
         "phan/phan": "^3.2",
         "phpunit/phpunit": "^9.5",
-        "rector/rector": "^0.11.52",
+        "rector/rector": "^0.12",
         "symfony/browser-kit": "^4.4",
         "symfony/css-selector": "^4.4",
         "symfony/debug-bundle": "^4.4",
@@ -64,6 +65,11 @@
             "vendor/idmarinas/lotgd/*",
             "vendor/idmarinas/lotgd-skeleton/*"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lotgd\\Bundle\\Tests\\": "tests/"
+        }
     },
     "scripts": {
         "auto-scripts": {
