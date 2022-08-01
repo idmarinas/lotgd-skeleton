@@ -21,16 +21,13 @@
         "version": "v4.0.0"
     },
     "composer/package-versions-deprecated": {
-        "version": "1.11.99.1"
+        "version": "1.11.99.5"
     },
     "composer/semver": {
         "version": "3.2.4"
     },
     "composer/xdebug-handler": {
         "version": "1.4.6"
-    },
-    "container-interop/container-interop": {
-        "version": "1.2.0"
     },
     "cron/cron": {
         "version": "1.5.0"
@@ -387,9 +384,6 @@
             "./config/packages/sonata_form.yaml"
         ]
     },
-    "sonata-project/twig-extensions": {
-        "version": "1.6.0"
-    },
     "stof/doctrine-extensions-bundle": {
         "version": "1.7",
         "recipe": {
@@ -503,21 +497,21 @@
         "version": "4.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "4.4",
-            "ref": "3b9c85f14cad439042f88f94a1fd15fb8ed923c9"
+            "ref": "24eb45d1355810154890460e6a05c0ca27318fe7"
         },
         "files": [
-            "./config/bootstrap.php",
-            "./config/packages/cache.yaml",
-            "./config/packages/framework.yaml",
-            "./config/packages/test/framework.yaml",
-            "./config/preload.php",
-            "./config/routes/dev/framework.yaml",
-            "./config/services.yaml",
-            "./public/index.php",
-            "./src/Controller/.gitignore",
-            "./src/Kernel.php"
+            "config/bootstrap.php",
+            "config/packages/cache.yaml",
+            "config/packages/framework.yaml",
+            "config/packages/test/framework.yaml",
+            "config/preload.php",
+            "config/routes/dev/framework.yaml",
+            "config/services.yaml",
+            "public/index.php",
+            "src/Controller/.gitignore",
+            "src/Kernel.php"
         ]
     },
     "symfony/http-client": {
@@ -551,15 +545,15 @@
         ]
     },
     "symfony/mailer": {
-        "version": "4.3",
+        "version": "4.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "4.3",
-            "ref": "bbfc7e27257d3a3f12a6fb0a42540a42d9623a37"
+            "ref": "97a61eabb351d7f6cb7702039bcfe07fe9d7e03c"
         },
         "files": [
-            "./config/packages/mailer.yaml"
+            "config/packages/mailer.yaml"
         ]
     },
     "symfony/maker-bundle": {
