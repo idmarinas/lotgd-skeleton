@@ -13,7 +13,7 @@
         "process-timeout": 5000,
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "license": "CC-BY-NC-SA-2.0",
     "require": {
@@ -34,7 +34,6 @@
         "symfony/flex": "^1.18"
     },
     "require-dev": {
-        "idmarinas/lotgd-skeleton": "7.1.*",
         "idmarinas/maker-bundle": "^1.0",
         "idmarinas/tracy-twig-bar": "^0.3",
         "macfja/tracy-doctrine-sql": "dev-master",
